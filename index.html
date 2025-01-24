@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vaishali Wankhede - Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+  
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      background: #121212;
+      color: #e0e0e0;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #1e1e1e;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    nav a {
+        text-decoration: none;
+        color: #bb86fc;
+        margin: 0 1rem;
+        font-weight: 500;
+        font-size: 1.1rem;
+        transition: color 0.3s, border-bottom 0.3s;
+        padding-bottom: 5px;
+}
+nav a:hover, nav a.active {
+        color: #3700b3;
+        border-bottom: 2px solid #bb86fc;
+}
+    header {
+      text-align: center;
+      padding: 10rem 2rem;
+      background: url("stars2.jpeg") no-repeat center center/cover;
+      clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    header h1 {
+      font-size: 4rem;
+      margin-bottom: 1.5rem;
+      font-family: 'Fira Code', monospace;
+      color: #f0f0f0;
+    }
+
+    header p {
+      font-size: 1.5rem;
+      font-weight: 300;
+      color: #bdbdbd;
+      margin-bottom: 2rem;
+      font-family: 'Fira Code', monospace;
+    }
+
+    /*.button-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+      animation: slideIn 2s ease-in-out;
+      font-family: 'Fira Code', monospace;
+    }
+
+    .button-container p {
+      font-size: 1.2rem;
+      color: #bb86fc;
+      margin-bottom: 1rem;
+    }
+
+    .button-container a {
+      text-decoration: none;
+      padding: 0.8rem 1.5rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+      border-radius: 50px;
+      color: #fff;
+      background: #bb86fc;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .button-container a:hover {
+      background: #3700b3;
+      transform: scale(1.1);
+    }*/
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+      animation: slideIn 2s ease-in-out;
+      font-family: 'Fira Code', monospace;
+    }
+
+    .button-container {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.buttons {
+  display: inline-flex;
+  gap: 1.5rem; /* Adds spacing between buttons */
+}
+
+.buttons a {
+  text-decoration: none;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 30px;
+  transition: all 0.3s ease-in-out;
+  display: inline-block;
+}
+
+/* Styles for "Download My CV" button */
+.cv-button {
+  background: linear-gradient(135deg, #bb86fc, #3700b3);
+  color: #fff;
+  box-shadow: 0 5px 15px rgba(187, 134, 252, 0.4);
+  border: none;
+}
+
+.cv-button:hover {
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: 0 10px 20px rgba(187, 134, 252, 0.6);
+}
+
+/* Styles for "Contact Me" button */
+.contact-button {
+  background: #fff;
+  color: #bb86fc;
+  border: 2px solid #bb86fc; /* Border to make it pop */
+  box-shadow: 0 5px 15px rgba(187, 134, 252, 0.2);
+}
+
+.contact-button:hover {
+  background: #bb86fc;
+  color: #fff;
+  box-shadow: 0 10px 20px rgba(187, 134, 252, 0.4);
+  transform: translateY(-3px) scale(1.1);
+}
+
+@keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(-20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideIn {
+      0% { opacity: 0; transform: translateX(-100px); }
+      100% { opacity: 1; transform: translateX(0); }
+    }
+
+    section {
+      padding: 4rem 2rem;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      font-weight: 700;
+      color: #bb86fc;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    #about {
+      background: url('https://via.placeholder.com/1920x800') no-repeat center center/cover;
+      background-attachment: fixed;
+    }
+
+    .about {
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      text-align: center;
+      animation: slideIn 1.5s ease-in-out;
+    }
+
+    .about img {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .about p {
+      max-width: 500px;
+      font-size: 1.2rem;
+      color: #bdbdbd;
+    }
+
+    #skills {
+      background: url("theboys.png") no-repeat center center/cover;
+      background-attachment: fixed;
+    }
+
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      justify-content: center;
+      animation: slideIn 1.5s ease-in-out;
+    }
+
+    .skill-box {
+      background: #1e1e1e;
+      border-radius: 10px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .skill-box:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 30px rgba(187, 134, 252, 0.7);
+    }
+
+    .skill-box img {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 0.5rem;
+    }
+
+    .skill-box h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #dcdde1;
+    }
+
+    #projects {
+      background: url('https://via.placeholder.com/1920x800') no-repeat center center/cover;
+      background-attachment: fixed;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: #1e1e1e;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s;
+    }
+
+    .project-card:hover {
+      transform: scale(1.05);
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .project-card div {
+      padding: 1rem;
+    }
+
+    .project-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: #bb86fc;
+    }
+
+    .project-card p {
+      font-size: 1rem;
+      color: #bdbdbd;
+    }
+
+    .project-card a {
+      text-decoration: none;
+      color: #bb86fc;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .project-card a:hover {
+      color: #3700b3;
+    }
+
+    /*#contact {
+      background: url('https://via.placeholder.com/1920x800') no-repeat center center/cover;
+      background-attachment: fixed;
+    }
+
+    .contact {
+      text-align: center;
+      padding: 2rem;
+      animation: fadeIn 2s;
+    }
+
+    .contact a {
+      margin: 0 1rem;
+      font-size: 2rem;
+      color: #bb86fc;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .contact a:hover {
+      color: #3700b3;
+    }*/
+    
+
+    .contact {
+      text-align: center;
+      padding: 2rem;
+      animation: fadeIn 2s;
+    }
+
+    .contact a {
+      margin: 0 1rem;
+      font-size: 2rem;
+      color: #bb86fc;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .contact a:hover {
+      color: #3700b3;
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 1rem;
+      background: #1e1e1e;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .contact-form input, .contact-form textarea, .contact-form button {
+      width: 100%;
+      margin-bottom: 1rem;
+      padding: 0.8rem;
+      border-radius: 5px;
+      border: none;
+      font-size: 1rem;
+    }
+
+    .contact-form input, .contact-form textarea {
+      background: #2e2e2e;
+      color: #e0e0e0;
+    }
+
+    .contact-form button {
+      background: #bb86fc;
+      color: #fff;
+      font-size: 1.2rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .contact-form button:hover {
+      background: #3700b3;
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: #1e1e1e;
+      color: #bdbdbd;
+      font-size: 1rem;
+    }
+
+    footer .socials a {
+      margin: 0 0.5rem;
+      color: #bb86fc;
+      text-decoration: none;
+      font-size: 1.5rem;
+      transition: color 0.3s;
+    }
+
+    footer .socials a:hover {
+      color: #3700b3;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(-20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideIn {
+      0% { opacity: 0; transform: translateX(-100px); }
+      100% { opacity: 1; transform: translateX(0); }
+    }
+    
+    .logo {
+  font-family: 'Fira Code', monospace;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #bb86fc;
+}
+
+.logo span {
+  display: inline-block;
+  transition: color 0.3s, transform 0.3s;
+  cursor: pointer;
+}
+
+.logo span:hover {
+  color: #3700b3;
+  transform: scale(1.1);
+}
+
+    
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const navLinks = document.querySelectorAll('nav a');
+
+      navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          navLinks.forEach(nav => nav.classList.remove('active'));
+          this.classList.add('active');
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+  <nav>
+    <div class="logo">
+      <span>&lt;VW/&gt;</span>
+    </div>
+    
+    <div>
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <header id="home">
+    <h1>Hi, I'm Vaishali Wankhede</h1>
+    <p>Software Developer</p>
+    <div class="button-container">
+      <p>Want to know more about me?</p>
+      <div class="buttons">
+        <a href="vaishali updated CV.pdf" download class="cv-button">Download My CV</a>
+        <a href="contact.html" class="contact-button">Contact Me</a>
+      </div>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="about">
+      <img src="vaishali.jpg" alt="Vaishali">
+      <p>
+        Hi, I’m Vaishali Wankhede! 🚀 
+        I’m a passionate software developer with a strong foundation in computer science, currently pursuing my MSc in Computer Science. My journey in tech began with a deep curiosity for coding, and I’ve since honed my skills in Python, JavaScript, HTML, CSS, and currently learning various DevOps tools. 
+        When I’m not coding, you’ll find me exploring the latest tech trends or binge-watching my favorite series. I love diving into challenges that push my skills and creativity.
+      </p>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills">
+      <div class="skill-box">
+        <img src="https://img.icons8.com/color/96/javascript--v1.png" alt="JavaScript">
+        <h3>JavaScript</h3>
+      </div>
+      <div class="skill-box">
+        <img src="https://img.icons8.com/color/48/python--v1.png" alt="Python">
+        <h3>Python</h3>
+      </div>
+      <div class="skill-box">
+        <img src="https://img.icons8.com/color/48/mysql-logo.png" alt="MySQL">
+        <h3>MySQL</h3>
+      </div>
+      <div class="skill-box">
+        <img src="https://img.icons8.com/color/48/mongodb.png" alt="MongoDB">
+        <h3>MongoDB</h3>
+      </div>
+      <div class="skill-box">
+        <img src="https://img.icons8.com/color/48/git.png" alt="git">
+        <h3>git</h3>
+      </div>
+      <div class="skill-box">
+        <img src="https://img.icons8.com/color/48/github--v1.png" alt="GitHub">
+        <h3>GitHub</h3>
+      </div>
+      <div class="skill-box">
+        <img src="https://img.icons8.com/color/48/figma--v1.png" alt="Figma">
+        <h3>Figma</h3>
+      </div>
+    </div>
+  </section>
+
+  
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
+      <div class="project-card">
+        <img src="Picture1.jpg" alt="Bloomify">
+        <div>
+          <h3>Bloomify</h3>
+          <h6>Project</h6>
+          <p>Built a fully functional e-commerce website for flower sales using HTML, CSS, JavaScript, PHP, and MySQL.</p>
+          <a href="" target="_blank" style="text-decoration: none; color: #bb86fc; font-weight: bold;">View on GitHub</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="smart-home-automation.png" alt="Home Automation">
+        <div>
+          <h3>Home Automation</h3>
+          <h6>Project</h6>
+          <p>A home automation system using Blynk IoT to control various home appliances remotely.</p>
+          <a href="" target="_blank" style="text-decoration: none; color: #bb86fc; font-weight: bold;">View on GitHub</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="obdet.png" alt="Object Detection">
+        <div>
+          <h3>Object Detection</h3>
+          <h6>Project</h6>
+          <p>Created a real-time object detection system using Python, OpenCV, and YOLO.</p>
+          <a href="https://github.com/vaishbil/Object-Detection-and-Counting-For-Pluto-Drone.git" target="_blank" style="text-decoration: none; color: #bb86fc; font-weight: bold;">View on GitHub</a>
+        </div>
+      </div>
+      <!-- Add more projects like this -->
+      <div class="project-card">
+        <img src="pluto drone.png" alt="Project 4">
+        <div>
+          <h3>Drone Gesture Control</h3>
+          <h6>Project</h6>
+          <p>This project involves controlling a Pluto drone through hand gestures detected using computer vision (OpenCV) and a trained machine learning model. The system recognizes predefined gestures made by the user in real-time and translates them into commands to control the drone’s movements, such as take-off, landing, forward, backward, left, and right.</p>
+          <a href="https://github.com/vaishbil/Drone_Gesture_Control.git" target="_blank">View on GitHub</a>
+        </div>
+      </div>
+      <!--<div class="project-card">
+        <img src="project5.png" alt="Project 5">
+        <div>
+          <h3>Project 5</h3>
+          <h6>Project</h6>
+          <p>Description for Project 5.</p>
+          <a href="#" target="_blank">View on GitHub</a>
+        </div>
+      </div>-->
+      <!--<div class="project-card">
+        <img src="project6.png" alt="Project 6">
+        <div>
+          <h3>Project 6</h3>
+          <h6>Project</h6>
+          <p>Description for Project 6.</p>
+          <a href="#" target="_blank">View on GitHub</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="project7.png" alt="Project 7">
+        <div>
+          <h3>Project 7</h3>
+          <h6>Project</h6>
+          <p>Description for Project 7.</p>
+          <a href="#" target="_blank">View on GitHub</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="project8.png" alt="Project 8">
+        <div>
+          <h3>Project 8</h3>
+          <h6>Project</h6>
+          <p>Description for Project 8.</p>
+          <a href="#" target="_blank">View on GitHub</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="project9.png" alt="Project 9">
+        <div>
+          <h3>Project 9</h3>
+          <h6>Project</h6>
+          <p>Description for Project 9.</p>
+          <a href="#" target="_blank">View on GitHub</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="project10.png" alt="Project 10">
+        <div>
+          <h3>Project 10</h3>
+          <h6>Project</h6>
+          <p>Description for Project 10.</p>
+          <a href="#" target="_blank">View on GitHub</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="project11.png" alt="Project 11">
+        <div>
+          <h3>Project 11</h3>
+          <h6>Project</h6>
+          <p>Description for Project 11.</p>
+          <a href="#" target="_blank">View on GitHub</a>
+        </div>-->
+      </div>
+    </div>
+  </section>
+   
+  
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <div class="contact">
+      <form class="contact-form">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </section>
+  <footer>
+    <div>&copy; 2025 Vaishali Wankhede</div>
+    <div class="socials">
+      <a href="mailto:vaishaliwankhede777@gmail.com">
+        <img src="https://img.icons8.com/stickers/50/gmail-new.png" alt="Gmail" style="width: 40px;">  
+      </a>
+      <a href="https://linkedin.com/in/vaishali-wankhede-943108188">
+      <img src="https://img.icons8.com/stickers/50/linkedin.png" alt="LinkedIn" style="width: 40px;">  
+      </a>
+      <a href="https://github.com/vaishbil">
+      <img src="https://img.icons8.com/stickers/50/github.png" alt="GitHub" style="width: 40px;"> 
+      </a>
+      <a href="https://www.instagram.com/vaishhh/">
+      <img src="https://img.icons8.com/stickers/50/instagram-new--v2.png" alt="Instagram" style="width: 40px;"> 
+      </a>
+      <a href="https://discord.com/channels/@me">
+        <img src="https://img.icons8.com/stickers/50/discord.png" alt="Discord" style="width: 40px;"> 
+        </a>
+        <a href="https://pin.it/wtm5MC4rk">
+          <img src="https://img.icons8.com/stickers/50/pinterest.png" alt="Pinterest" style="width: 40px;"> 
+          </a>
+    </div>
+  </footer>
+
+  
+</body>
+</html>
