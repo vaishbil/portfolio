@@ -48,6 +48,41 @@ nav a:hover, nav a.active {
         color: #3700b3;
         border-bottom: 2px solid #bb86fc;
 }
+
+.menu {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #bb86fc;
+}
+
+    @media (max-width: 768px) {
+  .menu {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: #1e1e1e;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-links a {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+    text-align: right;
+  }
+}
     header {
       text-align: center;
       padding: 10rem 2rem;
@@ -438,13 +473,11 @@ nav a:hover, nav a.active {
   </style>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const navLinks = document.querySelectorAll('nav a');
+      const menuIcon = document.querySelector('.menu');
+      const navLinks = document.querySelector('.nav-links');
 
-      navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-          navLinks.forEach(nav => nav.classList.remove('active'));
-          this.classList.add('active');
-        });
+      menuIcon.addEventListener('click', () => {
+        navLinks.classList.toggle('show');
       });
     });
   </script>
@@ -454,8 +487,10 @@ nav a:hover, nav a.active {
     <div class="logo">
       <span>&lt;VW/&gt;</span>
     </div>
-    
-    <div>
+    <div class="menu">
+        <i class="fas fa-bars"></i>
+      </div>
+      <div class="nav-links">
       <a href="#home" class="active">Home</a>
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
