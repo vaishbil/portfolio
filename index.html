@@ -22,31 +22,62 @@
       line-height: 1.6;
       overflow-x: hidden;
     }
-
     nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: #1e1e1e;
-      padding: 1rem 2rem;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    }
-
-    nav a {
-        text-decoration: none;
-        color: #bb86fc;
-        margin: 0 1rem;
-        font-weight: 500;
-        font-size: 1.1rem;
-        transition: color 0.3s, border-bottom 0.3s;
-        padding-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1a1a1a;
+  padding: 0.9rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-left: 3px solid #bb86fc;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
 }
-nav a:hover, nav a.active {
-        color: #3700b3;
-        border-bottom: 2px solid #bb86fc;
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #9e9e9e;
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.nav-links a:hover {
+  background: rgba(187, 134, 252, 0.1);
+  color: #e0e0e0;
+}
+
+.nav-links a.active {
+  background: rgba(187, 134, 252, 0.12);
+  color: #bb86fc;
+}
+
+.nav-cta {
+  text-decoration: none;
+  background: #bb86fc;
+  color: #0a0a0a !important;
+  font-size: 0.88rem !important;
+  font-weight: 700 !important;
+  padding: 0.45rem 1.2rem !important;
+  border-radius: 20px !important;
+  margin-left: 0.8rem;
+  transition: background 0.3s, transform 0.2s !important;
+  font-family: 'Fira Code', monospace;
+}
+
+.nav-cta:hover {
+  background: #3700b3 !important;
+  color: #fff !important;
+  transform: translateY(-1px) !important;
 }
 
 .menu {
@@ -56,7 +87,7 @@ nav a:hover, nav a.active {
   color: #bb86fc;
 }
 
-    @media (max-width: 768px) {
+@media (max-width: 768px) {
   .menu {
     display: block;
   }
@@ -64,13 +95,15 @@ nav a:hover, nav a.active {
   .nav-links {
     display: none;
     flex-direction: column;
-    background-color: #1e1e1e;
+    background-color: #1a1a1a;
     position: absolute;
     top: 60px;
     right: 20px;
     padding: 1rem;
     border-radius: 10px;
+    border: 1px solid rgba(187,134,252,0.2);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    gap: 0;
   }
 
   .nav-links.show {
@@ -78,11 +111,21 @@ nav a:hover, nav a.active {
   }
 
   .nav-links a {
-    margin: 0.5rem 0;
+    padding: 0.6rem 1rem;
     font-size: 1rem;
     text-align: right;
+    border-radius: 6px;
+  }
+
+  .nav-cta {
+    margin-left: 0;
+    margin-top: 0.4rem;
+    text-align: center;
   }
 }
+    
+
+
     header {
       text-align: center;
       padding: 10rem 2rem;
@@ -222,28 +265,330 @@ nav a:hover, nav a.active {
     }
 
     .about {
-      display:flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 2rem;
-      text-align: center;
-      animation: slideIn 1.5s ease-in-out;
-    }
+  display: flex;
+  justify-content: center;
+  animation: slideIn 1.5s ease-in-out;
+}
 
-    .about img {
-      width: 300px;
-      height: 300px;
-      border-radius: 50%;
-      object-fit: cover;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-    }
+.about-card {
+  background: #1e1e1e;
+  border: 1px solid rgba(187, 134, 252, 0.2);
+  border-radius: 16px;
+  padding: 2.5rem;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 2rem;
+}
 
-    .about p {
-      max-width: 500px;
-      font-size: 1.2rem;
-      color: #bdbdbd;
-    }
+.about-left {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.about-top {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.about-top img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #bb86fc;
+  flex-shrink: 0;
+}
+
+.about-info h3 {
+  font-size: 1.4rem;
+  color: #f0f0f0;
+  margin-bottom: 0.3rem;
+}
+
+.about-info span {
+  color: #bb86fc;
+  font-size: 1rem;
+  font-family: 'Fira Code', monospace;
+}
+
+.about-bio {
+  color: #bdbdbd;
+  font-size: 1rem;
+  line-height: 1.8;
+  border-top: 1px solid rgba(187, 134, 252, 0.15);
+  padding-top: 1.2rem;
+}
+
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  border-top: 1px solid rgba(187, 134, 252, 0.15);
+  padding-top: 1.2rem;
+}
+
+.stat-box {
+  background: rgba(187, 134, 252, 0.08);
+  border: 1px solid rgba(187, 134, 252, 0.2);
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.stat-box .stat-num {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #bb86fc;
+  display: block;
+}
+
+.stat-box .stat-label {
+  font-size: 0.85rem;
+  color: #757575;
+  margin-top: 0.2rem;
+}
+
+.about-right {
+  border-left: 1px solid rgba(187, 134, 252, 0.15);
+  padding-left: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.about-right h4 {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #bb86fc;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.tl-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.tl-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #bb86fc;
+  margin-top: 4px;
+}
+
+.tl-line {
+  width: 1px;
+  flex: 1;
+  min-height: 30px;
+  background: rgba(187, 134, 252, 0.25);
+  margin-top: 4px;
+}
+
+.tl-content {
+  padding-bottom: 1.2rem;
+}
+
+.tl-degree {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #e0e0e0;
+  margin-bottom: 0.2rem;
+}
+
+.tl-school {
+  font-size: 0.9rem;
+  color: #9e9e9e;
+}
+
+.tl-year {
+  font-size: 0.8rem;
+  color: #bb86fc;
+  margin-top: 0.2rem;
+  font-family: 'Fira Code', monospace;
+}
+.tl-cgpa {
+  font-size: 0.8rem;
+  color: #bdbdbd;
+  margin-top: 0.2rem;
+}
+
+.tl-cgpa span {
+  color: #bb86fc;
+  font-weight: 600;
+}
+.about-github {
+  border-left: 1px solid rgba(187, 134, 252, 0.15);
+  padding-left: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.about-github h4 {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #bb86fc;
+  margin-bottom: 0.2rem;
+}
+
+.gh-streak-box {
+  background: rgba(187, 134, 252, 0.08);
+  border: 1px solid rgba(187, 134, 252, 0.2);
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.gh-streak-num {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #bb86fc;
+  line-height: 1;
+}
+
+.gh-streak-lbl {
+  font-size: 0.8rem;
+  color: #757575;
+  margin-top: 0.3rem;
+}
+
+.gh-activity-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6rem;
+}
+
+.gh-act-box {
+  background: rgba(187, 134, 252, 0.06);
+  border: 1px solid rgba(187, 134, 252, 0.15);
+  border-radius: 8px;
+  padding: 0.6rem;
+  text-align: center;
+}
+
+.gh-act-num {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #bb86fc;
+  display: block;
+}
+
+.gh-act-lbl {
+  font-size: 0.7rem;
+  color: #757575;
+  margin-top: 0.1rem;
+}
+
+.gh-commits-label {
+  font-size: 0.75rem;
+  color: #757575;
+  margin-bottom: 0.5rem;
+}
+
+.gh-commit-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(187, 134, 252, 0.08);
+}
+
+.gh-commit-item:last-child {
+  border-bottom: none;
+}
+
+.gh-commit-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #bb86fc;
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+
+.gh-commit-msg {
+  font-size: 0.82rem;
+  color: #bdbdbd;
+  flex: 1;
+  line-height: 1.4;
+}
+
+.gh-commit-time {
+  font-size: 0.75rem;
+  color: #757575;
+  flex-shrink: 0;
+  font-family: 'Fira Code', monospace;
+}
+
+.gh-link {
+  display: inline-block;
+  font-size: 0.82rem;
+  color: #bb86fc;
+  text-decoration: none;
+  font-family: 'Fira Code', monospace;
+  margin-top: 0.3rem;
+  transition: color 0.3s;
+}
+
+.gh-link:hover {
+  color: #fff;
+}
+
+@media (max-width: 1024px) {
+  .about-card {
+    grid-template-columns: 1fr 1fr;
+  }
+  .about-github {
+    grid-column: 1 / -1;
+    border-left: none;
+    border-top: 1px solid rgba(187, 134, 252, 0.15);
+    padding-left: 0;
+    padding-top: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-card {
+    grid-template-columns: 1fr;
+  }
+  .about-right {
+    border-left: none;
+    border-top: 1px solid rgba(187, 134, 252, 0.15);
+    padding-left: 0;
+    padding-top: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-card {
+    grid-template-columns: 1fr;
+  }
+  .about-right {
+    border-left: none;
+    border-top: 1px solid rgba(187, 134, 252, 0.15);
+    padding-left: 0;
+    padding-top: 1.5rem;
+  }
+  .about-top {
+    flex-direction: column;
+    text-align: center;
+  }
+}
 
     #skills {
       background: url("theboys.png") no-repeat center center/cover;
@@ -292,54 +637,104 @@ nav a:hover, nav a.active {
     }
 
     .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
-    }
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
 
-    .project-card {
-      background: #1e1e1e;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-      transition: transform 0.3s;
-    }
+.project-card {
+  background: #1e1e1e;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(187, 134, 252, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+  display: flex;
+  flex-direction: column;
+}
 
-    .project-card:hover {
-      transform: scale(1.05);
-    }
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(187, 134, 252, 0.2);
+  border-color: rgba(187, 134, 252, 0.4);
+}
 
-    .project-card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
+.project-accent {
+  height: 3px;
+  background: linear-gradient(90deg, #bb86fc, #3700b3);
+}
 
-    .project-card div {
-      padding: 1rem;
-    }
+.project-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
 
-    .project-card h3 {
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-      color: #bb86fc;
-    }
+.project-body {
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  flex: 1;
+}
 
-    .project-card p {
-      font-size: 1rem;
-      color: #bdbdbd;
-    }
+.project-card h3 {
+  font-size: 1.3rem;
+  color: #f0f0f0;
+  margin: 0;
+}
 
-    .project-card a {
-      text-decoration: none;
-      color: #bb86fc;
-      font-weight: bold;
-      transition: color 0.3s;
-    }
+.project-type {
+  font-size: 0.75rem;
+  color: #757575;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-family: 'Fira Code', monospace;
+}
 
-    .project-card a:hover {
-      color: #3700b3;
-    }
+.project-card p {
+  font-size: 0.92rem;
+  color: #bdbdbd;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.project-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 0.2rem;
+}
+
+.project-tag {
+  background: rgba(187, 134, 252, 0.1);
+  color: #bb86fc;
+  font-size: 0.75rem;
+  padding: 3px 10px;
+  border-radius: 20px;
+  border: 1px solid rgba(187, 134, 252, 0.25);
+  font-family: 'Fira Code', monospace;
+}
+
+.project-footer {
+  display: flex;
+  gap: 1rem;
+  margin-top: auto;
+  padding-top: 0.8rem;
+  border-top: 1px solid rgba(187, 134, 252, 0.1);
+}
+
+.project-footer a {
+  text-decoration: none;
+  color: #bb86fc;
+  font-weight: 600;
+  font-size: 0.88rem;
+  transition: color 0.3s;
+}
+
+.project-footer a:hover {
+  color: #fff;
+}
 
     /*#contact {
       background: url('https://via.placeholder.com/1920x800') no-repeat center center/cover;
@@ -373,59 +768,131 @@ nav a:hover, nav a.active {
         margin-right: auto;
 }
 
+    
+
     .contact {
-      text-align: center;
-      padding: 2rem;
-      animation: fadeIn 2s;
-    }
+  animation: fadeIn 2s;
+  max-width: 640px;
+  margin: 0 auto;
+}
 
-    .contact a {
-      margin: 0 1rem;
-      font-size: 2rem;
-      color: #bb86fc;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
+.contact-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
 
-    .contact a:hover {
-      color: #3700b3;
-    }
+.contact-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, #bb86fc, transparent);
+}
 
-    .contact-form {
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 1rem;
-      background: #1e1e1e;
-      border-radius: 10px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-    }
+.contact-line.right {
+  background: linear-gradient(90deg, transparent, #bb86fc);
+}
 
-    .contact-form input, .contact-form textarea, .contact-form button {
-      width: 100%;
-      margin-bottom: 1rem;
-      padding: 0.8rem;
-      border-radius: 5px;
-      border: none;
-      font-size: 1rem;
-    }
+.contact-header span {
+  color: #bb86fc;
+  font-size: 0.85rem;
+  font-family: 'Fira Code', monospace;
+  font-weight: 600;
+  white-space: nowrap;
+}
 
-    .contact-form input, .contact-form textarea {
-      background: #2e2e2e;
-      color: #e0e0e0;
-    }
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
 
-    .contact-form button {
-      background: #bb86fc;
-      color: #fff;
-      font-size: 1.2rem;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
+.contact-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
 
-    .contact-form button:hover {
-      background: #3700b3;
-    }
+.contact-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.contact-field label {
+  font-size: 0.72rem;
+  font-family: 'Fira Code', monospace;
+  color: #757575;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.contact-form input,
+.contact-form textarea {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(187, 134, 252, 0.3);
+  color: #e0e0e0;
+  font-size: 1rem;
+  font-family: 'Roboto', sans-serif;
+  padding: 0.4rem 0;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-bottom-color: #bb86fc;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #444;
+}
+
+.contact-form textarea {
+  resize: none;
+  height: 80px;
+}
+
+.contact-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.contact-handle {
+  font-size: 0.8rem;
+  font-family: 'Fira Code', monospace;
+  color: #757575;
+}
+
+.contact-form button {
+  background: #bb86fc;
+  color: #0a0a0a;
+  border: none;
+  border-radius: 6px;
+  padding: 0.7rem 2rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  font-family: 'Fira Code', monospace;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.contact-form button:hover {
+  background: #3700b3;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .contact-row {
+    grid-template-columns: 1fr;
+  }
+}
 
     footer {
       display: flex;
@@ -492,43 +959,113 @@ nav a:hover, nav a.active {
 </head>
 <body>
   <nav>
-    <div class="logo">
-      <span>&lt;VW/&gt;</span>
-    </div>
-    <div class="menu">
-        <i class="fas fa-bars"></i>
-      </div>
-      <div class="nav-links">
-      <a href="#home" class="active">Home</a>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </nav>
+  <div class="logo">
+    <span>&lt;VW/&gt;</span>
+  </div>
+  <div class="menu">
+    <i class="fas fa-bars"></i>
+  </div>
+  <div class="nav-links">
+    <a href="#home" class="active">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact" class="nav-cta">Contact ↗</a>
+  </div>
+</nav>
 
   <header id="home">
     <h1>Hi, I'm Vaishali Wankhede</h1>
-    <p>Software Developer</p>
+    <p>Frontend Developer</p>
     <div class="button-container">
       <p>Want to know more about me?</p>
       <div class="buttons">
         <a href="vaishali_CV.pdf" download class="cv-button">Download My CV</a>
-        <a href="contact.html" class="contact-button">Contact Me</a>
+        <a href="#contact" class="contact-button">Contact Me</a>
       </div>
   </header>
 
   <section id="about">
-    <h2>About Me</h2>
-    <div class="about">
-      <img src="vaishali.jpg" alt="Vaishali">
-      <p>
-        Hi, I’m Vaishali Wankhede! 🚀 
-        I’m a passionate software developer with a strong foundation in computer science, currently pursuing my MSc in Computer Science. My journey in tech began with a deep curiosity for coding, and I’ve since honed my skills in Python, JavaScript, HTML, CSS, and currently learning various DevOps tools. 
-        When I’m not coding, you’ll find me exploring the latest tech trends or binge-watching my favorite series. I love diving into challenges that push my skills and creativity.
-      </p>
+  <h2>About Me</h2>
+  <div class="about">
+    <div class="about-card">
+      <div class="about-left">
+        <div class="about-top">
+          <img src="vaishali.jpg" alt="Vaishali">
+          <div class="about-info">
+            <h3>Vaishali Wankhede</h3>
+            <span>Frontend Developer</span>
+          </div>
+        </div>
+        <p class="about-bio">
+  MSc Computer Science graduate with a strong foundation in front-end development and a keen eye for clean, functional design. I build with JavaScript, Python, HTML, CSS, Node.js, and MongoDB and I'm always pushing myself into new territory. I approach problems with curiosity, ship with intention, and bring both technical depth and creative thinking to everything I build.
+</p>
+      </div>
+
+      <div class="about-right">
+        <h4>Education &amp; Experience</h4>
+
+        <div class="timeline-item">
+          <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+  <div class="tl-degree">MSc Computer Science</div>
+  <div class="tl-school">Kishinchand Chellaram College, Churchgate</div>
+  <div class="tl-year">2023 – 2025</div>
+  <div class="tl-cgpa">CGPA: <span>8.76 / 10</span></div>
+</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+  <div class="tl-degree">BSc Computer Science</div>
+  <div class="tl-school">K V Pendharkar college, Dombivli</div>
+  <div class="tl-year">2020 – 2023</div>
+  <div class="tl-cgpa">CGPA: <span>8.56 / 10</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-github">
+        <h4>GitHub</h4>
+
+        <div class="gh-streak-box">
+          <div class="gh-streak-num">🔥 24</div>
+          <div class="gh-streak-lbl">day streak</div>
+        </div>
+
+        <div class="gh-activity-row">
+  <div class="gh-act-box">
+    <span class="gh-act-num" id="gh-repos">12</span>
+    <div class="gh-act-lbl">Repos</div>
+  </div>
+  <div class="gh-act-box">
+    <span class="gh-act-num">340+</span>
+    <div class="gh-act-lbl">Commits</div>
+  </div>
+  <div class="gh-act-box">
+    <span class="gh-act-num" id="gh-stars">5</span>
+    <div class="gh-act-lbl">Stars</div>
+  </div>
+</div>
+
+        <div>
+  <div class="gh-commits-label">Recent activity</div>
+  <div id="gh-activity-feed">
+    <div class="gh-commit-item">
+      <div class="gh-commit-dot"></div>
+      <span class="gh-commit-msg" style="color:#757575;">Loading...</span>
     </div>
-  </section>
+  </div>
+</div>
+
+        <a href="https://github.com/vaishbil" target="_blank" class="gh-link">github.com/vaishbil ↗</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 
   <section id="skills">
     <h2>Skills</h2>
@@ -536,6 +1073,10 @@ nav a:hover, nav a.active {
       <div class="skill-box">
         <img src="https://img.icons8.com/color/96/javascript--v1.png" alt="JavaScript">
         <h3>JavaScript</h3>
+      </div>
+      <div class="skill-box">
+        <img src="https://img.icons8.com/?size=100&id=13679&format=png&color=000000" alt="JavaScript">
+        <h3>Java</h3>
       </div>
       <div class="skill-box">
         <img src="https://img.icons8.com/color/48/python--v1.png" alt="Python">
@@ -548,6 +1089,10 @@ nav a:hover, nav a.active {
       <div class="skill-box">
         <img src="https://img.icons8.com/color/48/mongodb.png" alt="MongoDB">
         <h3>MongoDB</h3>
+      </div>
+      <div class="skill-box">
+        <img src="https://img.icons8.com/?size=100&id=54087&format=png&color=000000" alt="git">
+        <h3>Nodejs</h3>
       </div>
       <div class="skill-box">
         <img src="https://img.icons8.com/color/48/git.png" alt="git">
@@ -564,125 +1109,126 @@ nav a:hover, nav a.active {
     </div>
   </section>
 
-  
   <section id="projects">
-    <h2>Projects</h2>
-    <div class="projects">
-      <div class="project-card">
-        <img src="binge.png" alt="Bingetrackr">
+  <h2>Projects</h2>
+  <div class="projects">
+
+    <div class="project-card">
+      <div class="project-accent"></div>
+      <img src="binge.png" alt="Bingetrackr">
+      <div class="project-body">
         <div>
           <h3>Bingetrackr</h3>
-          <h6>Project</h6>
-          <p>A admin approval web app to track movies & TV series with features including manage watchlists, track episodes, and share collections with friends. Built using HTML, CSS, JavaScript, Node.js, and MongoDB Atlas, deployed on Vercel and Render.</p>
-          <a href="https://bingetrackr.vercel.app" target="_blank" style="text-decoration: none; color: #bb86fc; font-weight: bold;">View</a>
+          <div class="project-type">Full-stack · Web App</div>
         </div>
-      </div>
-      <div class="project-card">
-        <img src="smart-home-automation.png" alt="Home Automation">
-        <div>
-          <h3>Home Automation</h3>
-          <h6>Project</h6>
-          <p>A home automation system using Blynk IoT to control various home appliances remotely.</p>
-          <a href="" target="_blank" style="text-decoration: none; color: #bb86fc; font-weight: bold;">View on GitHub</a>
+        <p>A web app to track movies & TV series with watchlists, episode tracking, and social sharing. Built with HTML, CSS, JavaScript, Node.js, and MongoDB Atlas. Deployed on Vercel and Render.</p>
+        <div class="project-stack">
+          <span class="project-tag">JavaScript</span>
+          <span class="project-tag">Node.js</span>
+          <span class="project-tag">MongoDB</span>
+          <span class="project-tag">Vercel</span>
         </div>
-      </div>
-      <div class="project-card">
-        <img src="obdet.png" alt="Object Detection">
-        <div>
-          <h3>Object Detection</h3>
-          <h6>Project</h6>
-          <p>Created a real-time object detection system using Python, OpenCV, and YOLO.</p>
-          <a href="https://github.com/vaishbil/Object-Detection-and-Counting-For-Pluto-Drone.git" target="_blank" style="text-decoration: none; color: #bb86fc; font-weight: bold;">View on GitHub</a>
+        <div class="project-footer">
+          <a href="https://bingetrackr.vercel.app" target="_blank">Live Demo ↗</a>
         </div>
-      </div>
-      <!-- Add more projects like this -->
-      <div class="project-card">
-        <img src="pluto drone.png" alt="Project 4">
-        <div>
-          <h3>Drone Gesture Control</h3>
-          <h6>Project</h6>
-          <p>This project involves controlling a Pluto drone through hand gestures detected using computer vision (OpenCV) and a trained machine learning model. The system recognizes predefined gestures made by the user in real-time and translates them into commands to control the drone’s movements, such as take-off, landing, forward, backward, left, and right.</p>
-          <a href="https://github.com/vaishbil/Drone_Gesture_Control.git" target="_blank">View on GitHub</a>
-        </div>
-      </div>
-      <!--<div class="project-card">
-        <img src="project5.png" alt="Project 5">
-        <div>
-          <h3>Project 5</h3>
-          <h6>Project</h6>
-          <p>Description for Project 5.</p>
-          <a href="#" target="_blank">View on GitHub</a>
-        </div>
-      </div>-->
-      <!--<div class="project-card">
-        <img src="project6.png" alt="Project 6">
-        <div>
-          <h3>Project 6</h3>
-          <h6>Project</h6>
-          <p>Description for Project 6.</p>
-          <a href="#" target="_blank">View on GitHub</a>
-        </div>
-      </div>
-      <div class="project-card">
-        <img src="project7.png" alt="Project 7">
-        <div>
-          <h3>Project 7</h3>
-          <h6>Project</h6>
-          <p>Description for Project 7.</p>
-          <a href="#" target="_blank">View on GitHub</a>
-        </div>
-      </div>
-      <div class="project-card">
-        <img src="project8.png" alt="Project 8">
-        <div>
-          <h3>Project 8</h3>
-          <h6>Project</h6>
-          <p>Description for Project 8.</p>
-          <a href="#" target="_blank">View on GitHub</a>
-        </div>
-      </div>
-      <div class="project-card">
-        <img src="project9.png" alt="Project 9">
-        <div>
-          <h3>Project 9</h3>
-          <h6>Project</h6>
-          <p>Description for Project 9.</p>
-          <a href="#" target="_blank">View on GitHub</a>
-        </div>
-      </div>
-      <div class="project-card">
-        <img src="project10.png" alt="Project 10">
-        <div>
-          <h3>Project 10</h3>
-          <h6>Project</h6>
-          <p>Description for Project 10.</p>
-          <a href="#" target="_blank">View on GitHub</a>
-        </div>
-      </div>
-      <div class="project-card">
-        <img src="project11.png" alt="Project 11">
-        <div>
-          <h3>Project 11</h3>
-          <h6>Project</h6>
-          <p>Description for Project 11.</p>
-          <a href="#" target="_blank">View on GitHub</a>
-        </div>-->
       </div>
     </div>
-  </section>
+
+    <div class="project-card">
+      <div class="project-accent"></div>
+      <img src="obdet.png" alt="Object Detection">
+      <div class="project-body">
+        <div>
+          <h3>Object Detection</h3>
+          <div class="project-type">ML · Computer Vision</div>
+        </div>
+        <p>Real-time object detection and counting system built using Python, OpenCV, and YOLO — designed for use with a Pluto drone.</p>
+        <div class="project-stack">
+          <span class="project-tag">Python</span>
+          <span class="project-tag">OpenCV</span>
+          <span class="project-tag">YOLO</span>
+        </div>
+        <div class="project-footer">
+          <a href="https://github.com/vaishbil/Object-Detection-and-Counting-For-Pluto-Drone.git" target="_blank">GitHub ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-accent"></div>
+      <img src="jobtracker.png" alt="Object Detection">
+      <div class="project-body">
+        <div>
+          <h3>Job Application Tracker</h3>
+          <div class="project-type">Chrome Extension</div>
+        </div>
+        <p>A browser extension that auto detects job listings you visit and logs them into a dashboard with status tracking.</p>
+        <div class="project-stack">
+          <span class="project-tag">Chrome Extension Api</span>
+          <span class="project-tag">Vanilla JS</span>
+          <span class="project-tag">IndexedDB</span>
+        </div>
+        <div class="project-footer">
+          <a href="" target="_blank">GitHub ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-accent"></div>
+      <img src="pluto drone.png" alt="Drone Gesture Control">
+      <div class="project-body">
+        <div>
+          <h3>Drone Gesture Control</h3>
+          <div class="project-type">ML · Computer Vision</div>
+        </div>
+        <p>Controls a Pluto drone via real-time hand gestures using OpenCV and a trained ML model. Supports take-off, landing, and directional movement.</p>
+        <div class="project-stack">
+          <span class="project-tag">Python</span>
+          <span class="project-tag">OpenCV</span>
+          <span class="project-tag">ML</span>
+        </div>
+        <div class="project-footer">
+          <a href="https://github.com/vaishbil/Drone_Gesture_Control.git" target="_blank">GitHub ↗</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+      
    
   <hr class="section-divider">
   <section id="contact">
-    <h2>Contact Me</h2>
-    <div class="contact">
-      <form class="contact-form">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-        <button type="submit">Send</button>
-      </form>
+  <h2>Contact Me</h2>
+  <div class="contact">
+    <div class="contact-header">
+      <div class="contact-line"></div>
+      <span>get in touch</span>
+      <div class="contact-line right"></div>
     </div>
-  </section>
+    <form class="contact-form" id="contact-form" action="https://formspree.io/f/xzdwadlj" method="POST">
+      <div class="contact-row">
+        <div class="contact-field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="your name" required>
+        </div>
+        <div class="contact-field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@email.com" required>
+        </div>
+      </div>
+      <div class="contact-field">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Hey, let's work together..." required></textarea>
+      </div>
+      <div class="contact-footer">
+        <span class="contact-handle">github.com/vaishbil</span>
+        <button type="submit">Send →</button>
+      </div>
+    </form>
+  </div>
+</section>
   <footer>
     <div>&copy; 2025 Vaishali Wankhede</div>
     <div class="socials">
@@ -706,7 +1252,75 @@ nav a:hover, nav a.active {
           </a>
     </div>
   </footer>
+  <script>
+  const form = document.getElementById('contact-form');
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const data = new FormData(form);
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+    if (response.ok) {
+      form.innerHTML = '<p style="color: #bb86fc; font-size: 1.2rem; text-align: center; padding: 2rem;">✅ Message sent! I\'ll get back to you soon.</p>';
+    } else {
+      form.innerHTML = '<p style="color: #cf6679; font-size: 1.2rem; text-align: center; padding: 2rem;">❌ Something went wrong. Try emailing me directly.</p>';
+    }
+  });
 
+  async function loadGithubStats() {
+    try {
+      const res = await fetch('https://api.github.com/users/vaishbil');
+      const data = await res.json();
+
+      const repoEl = document.getElementById('gh-repos');
+      const starsEl = document.getElementById('gh-stars');
+
+      if (repoEl) repoEl.textContent = data.public_repos;
+
+      if (starsEl) {
+        // fetch all repos to sum up stars
+        const reposRes = await fetch('https://api.github.com/users/vaishbil/repos?per_page=100');
+        const repos = await reposRes.json();
+        const totalStars = repos.reduce((sum, r) => sum + r.stargazers_count, 0);
+        starsEl.textContent = totalStars;
+      }
+    } catch (e) {
+      console.error('GitHub stats fetch failed:', e);
+    }
+  }
+  loadGithubStats();
+
+  async function loadGithubActivity() {
+    const feed = document.getElementById('gh-activity-feed');
+    try {
+      const res = await fetch(
+        'https://api.rss2json.com/v1/api.json?rss_url=https://github.com/vaishbil.atom'
+      );
+      const data = await res.json();
+      if (!data.items || data.items.length === 0) return;
+
+      const items = data.items.slice(0, 3);
+      feed.innerHTML = items.map(item => {
+        const date = new Date(item.pubDate);
+        const now = new Date();
+        const diffDays = Math.floor((now - date) / (1000 * 60 * 60 * 24));
+        const timeAgo = diffDays === 0 ? 'today' : diffDays === 1 ? '1d ago' : `${diffDays}d ago`;
+        const title = item.title.length > 45 ? item.title.slice(0, 45) + '…' : item.title;
+        return `
+          <div class="gh-commit-item">
+            <div class="gh-commit-dot"></div>
+            <span class="gh-commit-msg">${title}</span>
+            <span class="gh-commit-time">${timeAgo}</span>
+          </div>`;
+      }).join('');
+    } catch (e) {
+      feed.innerHTML = '<div class="gh-commit-item"><div class="gh-commit-dot"></div><span class="gh-commit-msg" style="color:#757575;">Could not load activity</span></div>';
+    }
+  }
+  loadGithubActivity();
+</script>
   
 </body>
 </html>
