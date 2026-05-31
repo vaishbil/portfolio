@@ -17,7 +17,7 @@
     }
     
     body {
-      background: #121212;
+      background: #0f1923;
       color: #e0e0e0;
       line-height: 1.6;
       overflow-x: hidden;
@@ -26,12 +26,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #1a1a1a;
+  background-color: #16253a;
   padding: 0.9rem 2rem;
   position: sticky;
   top: 0;
   z-index: 10;
-  border-left: 3px solid #bb86fc;
+  border-left: 3px solid #64a0dc;
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
 }
 
@@ -52,18 +52,18 @@
 }
 
 .nav-links a:hover {
-  background: rgba(187, 134, 252, 0.1);
+  background: rgba(100, 160, 220, 0.1);
   color: #e0e0e0;
 }
 
 .nav-links a.active {
-  background: rgba(187, 134, 252, 0.12);
-  color: #bb86fc;
+  background: rgba(100, 160, 220, 0.1);
+  color: #64a0dc;
 }
 
 .nav-cta {
   text-decoration: none;
-  background: #bb86fc;
+  background: #64a0dc;
   color: #0a0a0a !important;
   font-size: 0.88rem !important;
   font-weight: 700 !important;
@@ -75,7 +75,7 @@
 }
 
 .nav-cta:hover {
-  background: #3700b3 !important;
+  background: #185fa5 !important;
   color: #fff !important;
   transform: translateY(-1px) !important;
 }
@@ -84,7 +84,7 @@
   display: none;
   font-size: 1.5rem;
   cursor: pointer;
-  color: #bb86fc;
+  color: #64a0dc;
 }
 
 @media (max-width: 768px) {
@@ -95,13 +95,13 @@
   .nav-links {
     display: none;
     flex-direction: column;
-    background-color: #1a1a1a;
+    background-color: #16253a;
     position: absolute;
     top: 60px;
     right: 20px;
     padding: 1rem;
     border-radius: 10px;
-    border: 1px solid rgba(187,134,252,0.2);
+    border: 1px solid rgba(100,160,220,0.2);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
     gap: 0;
   }
@@ -138,7 +138,7 @@
       font-size: 4rem;
       margin-bottom: 1.5rem;
       font-family: 'Fira Code', monospace;
-      color: #f0f0f0;
+      color: #e8f0f8;
     }
 
     header p {
@@ -210,29 +210,29 @@
 
 /* Styles for "Download My CV" button */
 .cv-button {
-  background: linear-gradient(135deg, #bb86fc, #3700b3);
+  background: linear-gradient(135deg, #64a0dc, #185fa5);
   color: #fff;
-  box-shadow: 0 5px 15px rgba(187, 134, 252, 0.4);
+  box-shadow: 0 5px 15px rgba(100, 160, 220, 0.4);
   border: none;
 }
 
 .cv-button:hover {
   transform: translateY(-3px) scale(1.1);
-  box-shadow: 0 10px 20px rgba(187, 134, 252, 0.6);
+  box-shadow: 0 10px 20px rgba(100, 160, 220, 0.6);
 }
 
 /* Styles for "Contact Me" button */
 .contact-button {
   background: #fff;
-  color: #bb86fc;
-  border: 2px solid #bb86fc; /* Border to make it pop */
-  box-shadow: 0 5px 15px rgba(187, 134, 252, 0.2);
+  color: #64a0dc;
+  border: 2px solid #64a0dc; /* Border to make it pop */
+  box-shadow: 0 5px 15px rgba(100, 160, 220, 0.2);
 }
 
 .contact-button:hover {
-  background: #bb86fc;
+  background: #64a0dc;
   color: #fff;
-  box-shadow: 0 10px 20px rgba(187, 134, 252, 0.4);
+  box-shadow: 0 10px 20px rgba(100, 160, 220, 0.4);
   transform: translateY(-3px) scale(1.1);
 }
 
@@ -255,7 +255,7 @@
       text-align: center;
       margin-bottom: 2rem;
       font-weight: 700;
-      color: #bb86fc;
+      color: #64a0dc;
       animation: fadeIn 1.5s ease-in-out;
     }
 
@@ -271,8 +271,8 @@
 }
 
 .about-card {
-  background: #1e1e1e;
-  border: 1px solid rgba(187, 134, 252, 0.2);
+  background: #16253a;
+  border: 1px solid rgba(100, 160, 220, 0.2);
   border-radius: 16px;
   padding: 2.5rem;
   width: 100%;
@@ -298,7 +298,7 @@
   height: 120px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid #bb86fc;
+  border: 3px solid #64a0dc;
   flex-shrink: 0;
 }
 
@@ -309,7 +309,7 @@
 }
 
 .about-info span {
-  color: #bb86fc;
+  color: #64a0dc;
   font-size: 1rem;
   font-family: 'Fira Code', monospace;
 }
@@ -318,7 +318,7 @@
   color: #bdbdbd;
   font-size: 1rem;
   line-height: 1.8;
-  border-top: 1px solid rgba(187, 134, 252, 0.15);
+  border-top: 1px solid rgba(100, 160, 220, 0.15);
   padding-top: 1.2rem;
 }
 
@@ -326,13 +326,13 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
-  border-top: 1px solid rgba(187, 134, 252, 0.15);
+  border-top: 1px solid rgba(100, 160, 220, 0.15);
   padding-top: 1.2rem;
 }
 
 .stat-box {
-  background: rgba(187, 134, 252, 0.08);
-  border: 1px solid rgba(187, 134, 252, 0.2);
+  background: rgba(100, 160, 220, 0.08);
+  border: 1px solid rgba(100, 160, 220, 0.2);
   border-radius: 10px;
   padding: 1rem;
   text-align: center;
@@ -341,7 +341,7 @@
 .stat-box .stat-num {
   font-size: 1.8rem;
   font-weight: 700;
-  color: #bb86fc;
+  color: #64a0dc;
   display: block;
 }
 
@@ -352,7 +352,7 @@
 }
 
 .about-right {
-  border-left: 1px solid rgba(187, 134, 252, 0.15);
+  border-left: 1px solid rgba(100, 160, 220, 0.15);
   padding-left: 2.5rem;
   display: flex;
   flex-direction: column;
@@ -364,7 +364,7 @@
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #bb86fc;
+  color: #64a0dc;
   margin-bottom: 0.5rem;
 }
 
@@ -385,7 +385,7 @@
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: #bb86fc;
+  background: #64a0dc;
   margin-top: 4px;
 }
 
@@ -393,7 +393,7 @@
   width: 1px;
   flex: 1;
   min-height: 30px;
-  background: rgba(187, 134, 252, 0.25);
+  background: rgba(100, 160, 220, 0.25);
   margin-top: 4px;
 }
 
@@ -415,7 +415,7 @@
 
 .tl-year {
   font-size: 0.8rem;
-  color: #bb86fc;
+  color: #64a0dc;
   margin-top: 0.2rem;
   font-family: 'Fira Code', monospace;
 }
@@ -426,11 +426,11 @@
 }
 
 .tl-cgpa span {
-  color: #bb86fc;
+  color: #64a0dc;
   font-weight: 600;
 }
 .about-github {
-  border-left: 1px solid rgba(187, 134, 252, 0.15);
+  border-left: 1px solid rgba(100, 160, 220, 0.15);
   padding-left: 2rem;
   display: flex;
   flex-direction: column;
@@ -442,13 +442,13 @@
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #bb86fc;
+  color: #64a0dc;
   margin-bottom: 0.2rem;
 }
 
 .gh-streak-box {
-  background: rgba(187, 134, 252, 0.08);
-  border: 1px solid rgba(187, 134, 252, 0.2);
+  background: rgba(100, 160, 220, 0.08);
+  border: 1px solid rgba(100, 160, 220, 0.2);
   border-radius: 10px;
   padding: 1rem;
   text-align: center;
@@ -457,7 +457,7 @@
 .gh-streak-num {
   font-size: 2rem;
   font-weight: 700;
-  color: #bb86fc;
+  color: #64a0dc;
   line-height: 1;
 }
 
@@ -474,8 +474,8 @@
 }
 
 .gh-act-box {
-  background: rgba(187, 134, 252, 0.06);
-  border: 1px solid rgba(187, 134, 252, 0.15);
+  background: rgba(100, 160, 220, 0.06);
+  border: 1px solid rgba(100, 160, 220, 0.15);
   border-radius: 8px;
   padding: 0.6rem;
   text-align: center;
@@ -484,7 +484,7 @@
 .gh-act-num {
   font-size: 1rem;
   font-weight: 700;
-  color: #bb86fc;
+  color: #64a0dc;
   display: block;
 }
 
@@ -505,7 +505,7 @@
   align-items: flex-start;
   gap: 0.6rem;
   padding: 0.5rem 0;
-  border-bottom: 1px solid rgba(187, 134, 252, 0.08);
+  border-bottom: 1px solid rgba(100, 160, 220, 0.08);
 }
 
 .gh-commit-item:last-child {
@@ -516,7 +516,7 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #bb86fc;
+  background: #64a0dc;
   flex-shrink: 0;
   margin-top: 5px;
 }
@@ -538,7 +538,7 @@
 .gh-link {
   display: inline-block;
   font-size: 0.82rem;
-  color: #bb86fc;
+  color: #64a0dc;
   text-decoration: none;
   font-family: 'Fira Code', monospace;
   margin-top: 0.3rem;
@@ -556,7 +556,7 @@
   .about-github {
     grid-column: 1 / -1;
     border-left: none;
-    border-top: 1px solid rgba(187, 134, 252, 0.15);
+    border-top: 1px solid rgba(100, 160, 220, 0.15);
     padding-left: 0;
     padding-top: 1.5rem;
   }
@@ -568,7 +568,7 @@
   }
   .about-right {
     border-left: none;
-    border-top: 1px solid rgba(187, 134, 252, 0.15);
+    border-top: 1px solid rgba(100, 160, 220, 0.15);
     padding-left: 0;
     padding-top: 1.5rem;
   }
@@ -580,7 +580,7 @@
   }
   .about-right {
     border-left: none;
-    border-top: 1px solid rgba(187, 134, 252, 0.15);
+    border-top: 1px solid rgba(100, 160, 220, 0.15);
     padding-left: 0;
     padding-top: 1.5rem;
   }
@@ -604,7 +604,7 @@
     }
 
     .skill-box {
-      background: #1e1e1e;
+      background: #16253a;
       border-radius: 10px;
       padding: 1.5rem;
       text-align: center;
@@ -616,7 +616,7 @@
 
     .skill-box:hover {
       transform: scale(1.05);
-      box-shadow: 0 6px 30px rgba(187, 134, 252, 0.7);
+      box-shadow: 0 6px 30px rgba(100, 160, 220, 0.7);
     }
 
     .skill-box img {
@@ -643,10 +643,10 @@
 }
 
 .project-card {
-  background: #1e1e1e;
+  background: #16253a;
   border-radius: 10px;
   overflow: hidden;
-  border: 1px solid rgba(187, 134, 252, 0.1);
+  border: 1px solid rgba(100, 160, 220, 0.1);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
   transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
   display: flex;
@@ -655,13 +655,13 @@
 
 .project-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 30px rgba(187, 134, 252, 0.2);
-  border-color: rgba(187, 134, 252, 0.4);
+  box-shadow: 0 8px 30px rgba(1100, 160, 220, 0.2);
+  border-color: rgba(100, 160, 220, 0.4);
 }
 
 .project-accent {
   height: 3px;
-  background: linear-gradient(90deg, #bb86fc, #3700b3);
+  background: linear-gradient(90deg, #64a0dc, #185fa5);
 }
 
 .project-card img {
@@ -707,12 +707,12 @@
 }
 
 .project-tag {
-  background: rgba(187, 134, 252, 0.1);
-  color: #bb86fc;
+  background: rgba(100, 160, 220, 0.1);
+  color: #64a0dc;
   font-size: 0.75rem;
   padding: 3px 10px;
   border-radius: 20px;
-  border: 1px solid rgba(187, 134, 252, 0.25);
+  border: 1px solid rgba(100, 160, 220, 0.25);
   font-family: 'Fira Code', monospace;
 }
 
@@ -721,12 +721,12 @@
   gap: 1rem;
   margin-top: auto;
   padding-top: 0.8rem;
-  border-top: 1px solid rgba(187, 134, 252, 0.1);
+  border-top: 1px solid rgba(100, 160, 220, 0.1);
 }
 
 .project-footer a {
   text-decoration: none;
-  color: #bb86fc;
+  color: #64a0dc;
   font-weight: 600;
   font-size: 0.88rem;
   transition: color 0.3s;
@@ -761,7 +761,7 @@
     .section-divider {
         border: none;
         height: 2px;
-        background: #bb86fc; /* Choose a color that matches your theme */
+        background: #64a0dc; /* Choose a color that matches your theme */
         margin: 2rem 0;
         width: 80%; /* Adjust the width as needed */
         margin-left: auto;
@@ -786,15 +786,15 @@
 .contact-line {
   flex: 1;
   height: 1px;
-  background: linear-gradient(90deg, #bb86fc, transparent);
+  background: linear-gradient(90deg, #64a0dc, transparent);
 }
 
 .contact-line.right {
-  background: linear-gradient(90deg, transparent, #bb86fc);
+  background: linear-gradient(90deg, transparent, #64a0dc);
 }
 
 .contact-header span {
-  color: #bb86fc;
+  color: #64a0dc;
   font-size: 0.85rem;
   font-family: 'Fira Code', monospace;
   font-weight: 600;
@@ -831,7 +831,7 @@
 .contact-form textarea {
   background: transparent;
   border: none;
-  border-bottom: 1px solid rgba(187, 134, 252, 0.3);
+  border-bottom: 1px solid rgba(100, 160, 220, 0.3);
   color: #e0e0e0;
   font-size: 1rem;
   font-family: 'Roboto', sans-serif;
@@ -870,7 +870,7 @@
 }
 
 .contact-form button {
-  background: #bb86fc;
+  background: #64a0dc;
   color: #0a0a0a;
   border: none;
   border-radius: 6px;
@@ -883,7 +883,7 @@
 }
 
 .contact-form button:hover {
-  background: #3700b3;
+  background: #185fa5;
   color: #fff;
   transform: translateY(-2px);
 }
@@ -899,21 +899,21 @@
       justify-content: space-between;
       align-items: center;
       padding: 1rem 2rem;
-      background-color: #1e1e1e;
+      background-color: #16253a;
       color: #bdbdbd;
       font-size: 1rem;
     }
 
     footer .socials a {
       margin: 0 0.5rem;
-      color: #bb86fc;
+      color: #64a0dc;
       text-decoration: none;
       font-size: 1.5rem;
       transition: color 0.3s;
     }
 
     footer .socials a:hover {
-      color: #3700b3;
+      color: #185fa5;
     }
 
     @keyframes fadeIn {
@@ -930,7 +930,7 @@
   font-family: 'Fira Code', monospace;
   font-size: 1.5rem;
   font-weight: 600;
-  color: #bb86fc;
+  color: #64a0dc;
 }
 
 .logo span {
