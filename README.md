@@ -6,17 +6,6 @@ Personal portfolio website built with vanilla HTML, CSS, and JavaScript from scr
  
 ---
 
-## Projects Featured
- 
-| Project | Type | Stack |
-|---|---|---|
-| [Bingetrackr](https://bingetrackr.vercel.app) | Full-stack Web App | JavaScript, Node.js, MongoDB, Vercel |
-| [Job Application Tracker](https://github.com/vaishbil/job-tracker) | Chrome Extension | Vanilla JS, Chrome Storage API, Manifest V3 |
-| Object Detection | ML · Computer Vision | Python, OpenCV, YOLO |
-| Drone Gesture Control | ML · Computer Vision | Python, OpenCV, ML |
- 
----
-
 ## Built With
  
 - HTML5, CSS3, Vanilla JavaScript
