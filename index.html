@@ -260,295 +260,106 @@
       animation: fadeIn 1.5s ease-in-out;
     }
 
-    #about {
-      background: url('https://via.placeholder.com/1920x800') no-repeat center center/cover;
-      background-attachment: fixed;
-    }
-
-    .about {
-  display: flex;
-  justify-content: center;
-  animation: slideIn 1.5s ease-in-out;
+   #about {
+  background: url('https://via.placeholder.com/1920x800') no-repeat center center/cover;
+  background-attachment: fixed;
 }
 
-.about-card {
+.about-simple {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
   background: #16253a;
   border: 1px solid rgba(100, 160, 220, 0.2);
   border-radius: 16px;
   padding: 2.5rem;
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1.2fr 1fr 1fr;
-  gap: 2rem;
+  animation: slideIn 1.5s ease-in-out;
 }
 
-.about-left {
+.about-photo-col {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-}
-
-.about-top {
-  display: flex;
   align-items: center;
-  gap: 1.5rem;
-}
-
-.about-top img {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid #64a0dc;
   flex-shrink: 0;
 }
 
-.about-info h3 {
-  font-size: 1.4rem;
-  color: #f0f0f0;
-  margin-bottom: 0.3rem;
+.about-photo {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #64a0dc;
 }
 
-.about-info span {
+.about-name {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #f0f0f0;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.about-role {
   color: #64a0dc;
-  font-size: 1rem;
   font-family: 'Fira Code', monospace;
+  font-size: 0.9rem;
+  text-align: center;
+  margin-top: 0.2rem;
+}
+
+.about-content {
+  max-width: 600px;
 }
 
 .about-bio {
   color: #bdbdbd;
   font-size: 1rem;
-  line-height: 1.8;
-  border-top: 1px solid rgba(100, 160, 220, 0.15);
-  padding-top: 1.2rem;
+  line-height: 1.85;
+  margin-bottom: 1.6rem;
 }
 
-.about-stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-  border-top: 1px solid rgba(100, 160, 220, 0.15);
-  padding-top: 1.2rem;
-}
-
-.stat-box {
-  background: rgba(100, 160, 220, 0.08);
-  border: 1px solid rgba(100, 160, 220, 0.2);
-  border-radius: 10px;
-  padding: 1rem;
-  text-align: center;
-}
-
-.stat-box .stat-num {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #64a0dc;
-  display: block;
-}
-
-.stat-box .stat-label {
-  font-size: 0.85rem;
-  color: #757575;
-  margin-top: 0.2rem;
-}
-
-.about-right {
-  border-left: 1px solid rgba(100, 160, 220, 0.15);
-  padding-left: 2.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.about-right h4 {
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
+.about-skills h4 {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: #64a0dc;
-  margin-bottom: 0.5rem;
-}
-
-.timeline-item {
-  display: flex;
-  gap: 1rem;
-  align-items: flex-start;
-}
-
-.tl-left {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-shrink: 0;
-}
-
-.tl-dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: #64a0dc;
-  margin-top: 4px;
-}
-
-.tl-line {
-  width: 1px;
-  flex: 1;
-  min-height: 30px;
-  background: rgba(100, 160, 220, 0.25);
-  margin-top: 4px;
-}
-
-.tl-content {
-  padding-bottom: 1.2rem;
-}
-
-.tl-degree {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #e0e0e0;
-  margin-bottom: 0.2rem;
-}
-
-.tl-school {
-  font-size: 0.9rem;
-  color: #9e9e9e;
-}
-
-.tl-year {
-  font-size: 0.8rem;
-  color: #64a0dc;
-  margin-top: 0.2rem;
   font-family: 'Fira Code', monospace;
-}
-.tl-cgpa {
-  font-size: 0.8rem;
-  color: #bdbdbd;
-  margin-top: 0.2rem;
+  margin-bottom: 0.9rem;
 }
 
-.tl-cgpa span {
-  color: #64a0dc;
-  font-weight: 600;
-}
-.about-github {
-  border-left: 1px solid rgba(100, 160, 220, 0.15);
-  padding-left: 2rem;
+.skill-tags {
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.about-github h4 {
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: #64a0dc;
-  margin-bottom: 0.2rem;
-}
-
-.gh-streak-box {
-  background: rgba(100, 160, 220, 0.08);
-  border: 1px solid rgba(100, 160, 220, 0.2);
-  border-radius: 10px;
-  padding: 1rem;
-  text-align: center;
-}
-
-.gh-streak-num {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #64a0dc;
-  line-height: 1;
-}
-
-.gh-streak-lbl {
-  font-size: 0.8rem;
-  color: #757575;
-  margin-top: 0.3rem;
-}
-
-.gh-activity-row {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  flex-wrap: wrap;
   gap: 0.6rem;
 }
 
-.gh-act-box {
-  background: rgba(100, 160, 220, 0.06);
-  border: 1px solid rgba(100, 160, 220, 0.15);
-  border-radius: 8px;
-  padding: 0.6rem;
-  text-align: center;
-}
-
-.gh-act-num {
-  font-size: 1rem;
-  font-weight: 700;
+.skill-tags span {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.82rem;
+  background: rgba(100, 160, 220, 0.08);
+  border: 1px solid rgba(100, 160, 220, 0.2);
   color: #64a0dc;
-  display: block;
+  padding: 0.4rem 0.9rem;
+  border-radius: 20px;
+  transition: all 0.25s;
 }
 
-.gh-act-lbl {
-  font-size: 0.7rem;
-  color: #757575;
-  margin-top: 0.1rem;
-}
-
-.gh-commits-label {
-  font-size: 0.75rem;
-  color: #757575;
-  margin-bottom: 0.5rem;
-}
-
-.gh-commit-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.6rem;
-  padding: 0.5rem 0;
-  border-bottom: 1px solid rgba(100, 160, 220, 0.08);
-}
-
-.gh-commit-item:last-child {
-  border-bottom: none;
-}
-
-.gh-commit-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
+.skill-tags span:hover {
   background: #64a0dc;
-  flex-shrink: 0;
-  margin-top: 5px;
+  color: #0a0a0a;
+  transform: translateY(-2px);
 }
 
-.gh-commit-msg {
-  font-size: 0.82rem;
-  color: #bdbdbd;
-  flex: 1;
-  line-height: 1.4;
-}
-
-.gh-commit-time {
-  font-size: 0.75rem;
-  color: #757575;
-  flex-shrink: 0;
-  font-family: 'Fira Code', monospace;
-}
-
-.gh-link {
-  display: inline-block;
-  font-size: 0.82rem;
-  color: #64a0dc;
-  text-decoration: none;
-  font-family: 'Fira Code', monospace;
-  margin-top: 0.3rem;
-  transition: color 0.3s;
-}
-
-.gh-link:hover {
-  color: #fff;
-}
+@media (max-width: 700px) {
+  .about-simple {
+    flex-direction: column;
+    text-align: center;
+  }
+  .skill-tags {
+    justify-content: center;
+  }
+} 
 
 @media (max-width: 1024px) {
   .about-card {
@@ -986,87 +797,30 @@
       </div>
   </header>
 
-  <section id="about">
+<section id="about">
   <h2>About Me</h2>
-  <div class="about">
-    <div class="about-card">
-      <div class="about-left">
-        <div class="about-top">
-          <img src="vaishali.jpg" alt="Vaishali">
-          <div class="about-info">
-            <h3>Vaishali Wankhede</h3>
-            <span>Frontend Developer</span>
-          </div>
-        </div>
-        <p class="about-bio">
-  MSc Computer Science graduate with a strong foundation in front-end development and a keen eye for clean, functional design. I build with JavaScript, Python, HTML, CSS, Node.js, and MongoDB and I'm always pushing myself into new territory. I approach problems with curiosity, ship with intention, and bring both technical depth and creative thinking to everything I build.
-</p>
-      </div>
-
-      <div class="about-right">
-        <h4>Education &amp; Experience</h4>
-
-        <div class="timeline-item">
-          <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
-          <div class="tl-content">
-  <div class="tl-degree">MSc Computer Science</div>
-  <div class="tl-school">Kishinchand Chellaram College, Churchgate</div>
-  <div class="tl-year">2023 – 2025</div>
-  <div class="tl-cgpa">CGPA: <span>8.76 / 10</span></div>
-</div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
-          <div class="tl-content">
-  <div class="tl-degree">BSc Computer Science</div>
-  <div class="tl-school">K V Pendharkar college, Dombivli</div>
-  <div class="tl-year">2020 – 2023</div>
-  <div class="tl-cgpa">CGPA: <span>8.56 / 10</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="about-github">
-        <h4>GitHub</h4>
-
-        <div class="gh-streak-box">
-          <div class="gh-streak-num">🔥 24</div>
-          <div class="gh-streak-lbl">day streak</div>
-        </div>
-
-        <div class="gh-activity-row">
-  <div class="gh-act-box">
-    <span class="gh-act-num" id="gh-repos">12</span>
-    <div class="gh-act-lbl">Repos</div>
-  </div>
-  <div class="gh-act-box">
-    <span class="gh-act-num">340+</span>
-    <div class="gh-act-lbl">Commits</div>
-  </div>
-  <div class="gh-act-box">
-    <span class="gh-act-num" id="gh-stars">5</span>
-    <div class="gh-act-lbl">Stars</div>
-  </div>
-</div>
-
-        <div>
-  <div class="gh-commits-label">Recent activity</div>
-  <div id="gh-activity-feed">
-    <div class="gh-commit-item">
-      <div class="gh-commit-dot"></div>
-      <span class="gh-commit-msg" style="color:#757575;">Loading...</span>
+  <div class="about-simple">
+    <div class="about-photo-col">
+      <img src="vaishali.jpg" alt="Vaishali Wankhede" class="about-photo">
+      <div class="about-name">Vaishali Wankhede</div>
+      <div class="about-role">Frontend Developer</div>
     </div>
-  </div>
-</div>
-
-        <a href="https://github.com/vaishbil" target="_blank" class="gh-link">github.com/vaishbil ↗</a>
+    <div class="about-content">
+      <p class="about-bio">
+        Hi, I'm Vaishali, a recent Computer Science graduate currently focused on React and frontend development. I like solving problems that sit right at the intersection of design and code, and I'm always working on something new to sharpen my skills. When I'm not building, I'm probably breaking something on purpose just to understand how it works.
+      </p>
+      <div class="about-skills">
+        
+        <div class="skill-tags">
+          <span>React</span>
+          <span>JavaScript</span>
+          <span>HTML/CSS</span>
+          <span>MongoDB</span>
+        </div>
       </div>
-
     </div>
   </div>
 </section>
-
 
   <section id="skills">
     <h2>Tech Stack</h2>
