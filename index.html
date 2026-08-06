@@ -1078,59 +1078,6 @@
       form.innerHTML = '<p style="color: #cf6679; font-size: 1.2rem; text-align: center; padding: 2rem;">❌ Something went wrong. Try emailing me directly.</p>';
     }
   });
-
-  async function loadGithubStats() {
-    try {
-      const res = await fetch('https://api.github.com/users/vaishbil');
-      const data = await res.json();
-
-      const repoEl = document.getElementById('gh-repos');
-      const starsEl = document.getElementById('gh-stars');
-
-      if (repoEl) repoEl.textContent = data.public_repos;
-
-      if (starsEl) {
-        // fetch all repos to sum up stars
-        const reposRes = await fetch('https://api.github.com/users/vaishbil/repos?per_page=100');
-        const repos = await reposRes.json();
-        const totalStars = repos.reduce((sum, r) => sum + r.stargazers_count, 0);
-        starsEl.textContent = totalStars;
-      }
-    } catch (e) {
-      console.error('GitHub stats fetch failed:', e);
-    }
-  }
-  loadGithubStats();
-
-  async function loadGithubActivity() {
-    const feed = document.getElementById('gh-activity-feed');
-    try {
-      const res = await fetch(
-        'https://api.rss2json.com/v1/api.json?rss_url=https://github.com/vaishbil.atom'
-      );
-      const data = await res.json();
-      if (!data.items || data.items.length === 0) return;
-
-      const items = data.items.slice(0, 3);
-      feed.innerHTML = items.map(item => {
-        const date = new Date(item.pubDate);
-        const now = new Date();
-        const diffDays = Math.floor((now - date) / (1000 * 60 * 60 * 24));
-        const timeAgo = diffDays === 0 ? 'today' : diffDays === 1 ? '1d ago' : `${diffDays}d ago`;
-        const title = item.title.length > 45 ? item.title.slice(0, 45) + '…' : item.title;
-        return `
-          <div class="gh-commit-item">
-            <div class="gh-commit-dot"></div>
-            <span class="gh-commit-msg">${title}</span>
-            <span class="gh-commit-time">${timeAgo}</span>
-          </div>`;
-      }).join('');
-    } catch (e) {
-      feed.innerHTML = '<div class="gh-commit-item"><div class="gh-commit-dot"></div><span class="gh-commit-msg" style="color:#757575;">Could not load activity</span></div>';
-    }
-  }
-  loadGithubActivity();
-</script>
-  
+</script> 
 </body>
 </html>
