@@ -1,6 +1,6 @@
 # Vaishali Wankhede — Personal Portfolio
  
-Personal portfolio website built with vanilla HTML, CSS, and JavaScript from scratch — no frameworks, no templates.
+Personal portfolio website built with HTML, CSS, and Vanilla JavaScript.
  
 **Live → [vaishbil.github.io/portfolio](https://vaishbil.github.io/portfolio)**
  
@@ -11,8 +11,6 @@ Personal portfolio website built with vanilla HTML, CSS, and JavaScript from scr
 - HTML5, CSS3, Vanilla JavaScript
 - Google Fonts — Roboto + Fira Code
 - Formspree for contact form
-- GitHub public API for live stats
-- GitHub Pages for hosting
 ---
 
 ## Contact
