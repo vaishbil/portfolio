@@ -410,41 +410,46 @@
       background-attachment: fixed;
     }
 
-    .skills {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 1rem;
-      justify-content: center;
-      animation: slideIn 1.5s ease-in-out;
-    }
+   .skills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem 1.6rem;;
+  max-width: 860px;
+  margin: 0 auto;
+  animation: slideIn 1.5s ease-in-out;
+}
 
-    .skill-box {
-      background: #16253a;
-      border-radius: 10px;
-      padding: 1.5rem;
-      text-align: center;
-      transition: transform 0.3s, box-shadow 0.3s;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-    }
+.skill-box {
+  width: 110px;
+  background: #16253a;
+  border: 2px solid #64a0dc;
+  border-bottom-width: 6px;
+  border-radius: 0;
+  padding: 1rem 0.5rem 0.8rem;
+  text-align: center;
+  transition: transform 0.15s steps(2), background 0.15s, border-color 0.15s;
+}
 
-    .skill-box:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 30px rgba(100, 160, 220, 0.7);
-    }
+.skill-box:hover {
+  transform: translateY(-4px);
+  background: #1d3350;
+  border-color: #9cc4ee;
+}
 
-    .skill-box img {
-      width: 40px;
-      height: 40px;
-      margin-bottom: 0.5rem;
-    }
+.skill-box img {
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin: 0 auto 0.6rem;
+}
 
-    .skill-box h3 {
-      font-size: 1rem;
-      font-weight: 600;
-      color: #dcdde1;
-    }
+.skill-box h3 {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: #cfd8e3;
+}
 
     #projects {
       /* background: #0f1923 no-repeat center center/cover; */
@@ -846,7 +851,7 @@
         <h3>MongoDB</h3>
       </div>
       <div class="skill-box">
-        <img src="https://img.icons8.com/?size=100&id=54087&format=png&color=000000" alt="git">
+        <img src="https://img.icons8.com/?size=100&id=54087&format=png&color=000000" alt="Nodejs">
         <h3>Nodejs</h3>
       </div>
       <div class="skill-box">
