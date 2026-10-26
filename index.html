@@ -463,6 +463,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.5rem;
+  align-items: start; 
 }
 
 .project-card {
@@ -523,7 +524,7 @@
 }
 
 .project-stack {
-  display: flex;
+  display: none;
   flex-wrap: wrap;
   gap: 6px;
   margin-top: 0.2rem;
@@ -556,6 +557,42 @@
 }
 
 .project-footer a:hover {
+  color: #fff;
+}
+
+.project-desc {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: calc(0.92rem * 1.7 * 3);
+}
+
+.project-card.expanded .project-desc {
+  display: block;
+  -webkit-line-clamp: unset;
+  line-clamp: unset;
+  overflow: visible;
+}
+
+.project-card.expanded .project-stack {
+  display: flex;
+}
+
+.read-more {
+  align-self: flex-start;
+  background: none;
+  border: none;
+  padding: 0;
+  color: #64a0dc;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.read-more:hover {
   color: #fff;
 }
 
@@ -877,13 +914,14 @@
           <h3>Bingetrackr</h3>
           <div class="project-type">Full-stack · Web App</div>
         </div>
-        <p>A web app to track movies & TV series with watchlists, episode tracking, and social sharing. Built with HTML, CSS, JavaScript, Node.js, and MongoDB Atlas. Deployed on Vercel and Render.</p>
+        <p class="project-desc">A web app to track movies & TV series with watchlists, episode tracking, and social sharing. Built with HTML, CSS, JavaScript, Node.js, and MongoDB Atlas. Deployed on Vercel and Render.</p>
         <div class="project-stack">
           <span class="project-tag">JavaScript</span>
           <span class="project-tag">Node.js</span>
           <span class="project-tag">MongoDB</span>
           <span class="project-tag">Vercel</span>
         </div>
+        <button class="read-more" type="button" aria-expanded="false">Read more ↓</button>
         <div class="project-footer">
           <a href="https://bingetrackr.vercel.app" target="_blank">Live Demo ↗</a>
         </div>
@@ -898,12 +936,13 @@
           <h3>Job Application Tracker</h3>
           <div class="project-type">Chrome Extension</div>
         </div>
-        <p>A browser extension that auto detects job listings you visit and logs them into a dashboard with status tracking.</p>
+        <p class="project-desc">A browser extension that auto detects job listings you visit and logs them into a dashboard with status tracking.</p>
         <div class="project-stack">
           <span class="project-tag">Chrome Storage API </span>
           <span class="project-tag">Vanilla JS</span>
           <span class="project-tag">Manifest V3</span>
         </div>
+        <button class="read-more" type="button" aria-expanded="false">Read more ↓</button>
         <div class="project-footer">
           <a href="https://github.com/vaishbil/job-tracker" target="_blank">GitHub ↗</a>
         </div>
@@ -918,7 +957,7 @@
           <h3>Volt</h3>
           <div class="project-type">Web App</div>
         </div>
-        <p>An AI-powered productivity and task management application developed for the Vibe2Ship Hackathon using Google AI Studio. Features intelligent task prioritisation, habit tracking, focus tools, and AI-assisted productivity to help users manage their daily workflow.</p>
+        <p class="project-desc">An AI-powered productivity and task management application developed for the Vibe2Ship Hackathon using Google AI Studio. Features intelligent task prioritisation, habit tracking, focus tools, and AI-assisted productivity to help users manage their daily workflow.</p>
         <div class="project-stack">
           <span class="project-tag">React </span>
           <span class="project-tag">TypeScript</span>
@@ -926,6 +965,7 @@
           <span class="project-tag">Google Gemini Api</span>
           <span class="project-tag">Google Ai Studio</span>
         </div>
+        <button class="read-more" type="button" aria-expanded="false">Read more ↓</button>
         <div class="project-footer">
           <a href="https://volt-839071485135.asia-southeast1.run.app/" target="_blank">Demo ↗</a>
           <a href="https://github.com/vaishbil/volt" target="_blank">GitHub ↗</a>
@@ -941,7 +981,7 @@
           <h3>Sonder</h3>
           <div class="project-type">Full Stack - Web App</div>
         </div>
-        <p>A real-time community chat platform — create servers, organize conversations into channels, and chat live with friends.</p>
+        <p class="project-desc">A real-time community chat platform — create servers, organize conversations into channels, and chat live with friends.</p>
         <div class="project-stack">
           <span class="project-tag">React </span>
           <span class="project-tag">Tailwind CSS</span>
@@ -951,6 +991,7 @@
           <span class="project-tag">Cloudinary</span>
           
         </div>
+        <button class="read-more" type="button" aria-expanded="false">Read more ↓</button>
         <div class="project-footer">
           <a href="https://sonder-tau-six.vercel.app/" target="_blank">Live Site ↗</a>
           <a href="https://github.com/vaishbil/sonder" target="_blank">GitHub ↗</a>
@@ -1072,6 +1113,37 @@
       form.innerHTML = '<p style="color: #cf6679; font-size: 1.2rem; text-align: center; padding: 2rem;">❌ Something went wrong. Try emailing me directly.</p>';
     }
   });
+  
+      function equalizeExpanded() {
+    const cards = [...document.querySelectorAll('.project-card')];
+    cards.forEach(c => c.style.minHeight = '');
+
+    const rows = {};
+    cards
+      .filter(c => c.classList.contains('expanded'))
+      .forEach(c => {
+        (rows[c.offsetTop] = rows[c.offsetTop] || []).push(c);
+      });
+
+    Object.values(rows).forEach(group => {
+      const tallest = Math.max(...group.map(c => c.offsetHeight));
+      group.forEach(c => c.style.minHeight = tallest + 'px');
+    });
+  }
+
+  document.querySelectorAll('.read-more').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const card = btn.closest('.project-card');
+      const open = card.classList.toggle('expanded');
+      btn.textContent = open ? 'Show less ↑' : 'Read more ↓';
+      btn.setAttribute('aria-expanded', open);
+      equalizeExpanded();
+    });
+  });
+
+  window.addEventListener('resize', equalizeExpanded);
+
+
 </script> 
 </body>
 </html>
