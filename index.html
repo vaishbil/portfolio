@@ -1,1218 +1,1356 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="icon" type="image/png" href="src/favicon.jpg">
-  <title>Vaishali Wankhede Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-  
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Roboto', sans-serif;
-      scroll-behavior: smooth;
-    }
-    
-    body {
-      background: #0f1923;
-      color: #e0e0e0;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-    nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #16253a;
-  padding: 0.9rem 2rem;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  border-left: 3px solid #64a0dc;
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-}
-
-.nav-links a {
-  position: relative;
-  text-decoration: none;
-  color: #9e9e9e;
-  font-family: 'Fira Code', monospace;
-  font-size: 0.8rem;
-  font-weight: 400;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  padding: 0.55rem 0.95rem;
-  transition: color 0.2s;
-}
-
-/* the two corner brackets */
-.nav-links a::before,
-.nav-links a::after {
-  content: "";
-  position: absolute;
-  width: 7px;
-  height: 7px;
-  opacity: 0;
-  transition: opacity 0.2s;
-}
-
-.nav-links a::before {
-  top: 0;
-  left: 0;
-  border-top: 1.5px solid #64a0dc;
-  border-left: 1.5px solid #64a0dc;
-}
-
-.nav-links a::after {
-  bottom: 0;
-  right: 0;
-  border-bottom: 1.5px solid #64a0dc;
-  border-right: 1.5px solid #64a0dc;
-}
-
-.nav-links a:hover {
-  color: #e8f0f8;
-}
-
-.nav-links a:hover::before,
-.nav-links a:hover::after,
-.nav-links a.active::before,
-.nav-links a.active::after {
-  opacity: 1;
-}
-
-.nav-links a.active {
-  color: #64a0dc;
-}
-
-.menu {
-  display: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: #64a0dc;
-}
-
-@media (max-width: 768px) {
-  .menu {
-    display: block;
-  }
-
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    background-color: #16253a;
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    padding: 1rem;
-    border-radius: 10px;
-    border: 1px solid rgba(100,160,220,0.2);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-    gap: 0;
-  }
-
-  .nav-links.show {
-    display: flex;
-  }
-
-  .nav-links a {
-    padding: 0.6rem 1rem;
-    font-size: 1rem;
-    text-align: right;
-    border-radius: 6px;
-  }
-
-  .nav-cta {
-    margin-left: 0;
-    margin-top: 0.4rem;
-    text-align: center;
-  }
-}
-    
-
-
-    header {
-      text-align: center;
-      padding: 10rem 2rem;
-      background: url("src/stars2.jpeg") no-repeat center center/cover;
-      /*clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);*/
-      animation: fadeIn 2s ease-in-out;
-    }
-
-    header h1 {
-  margin-bottom: 1.5rem;
-  font-family: 'Fira Code', monospace;
-  color: #e8f0f8;
-  line-height: 1.1;
-}
-
-header h1 .hi {
-  display: block;
-  font-family: 'Fira Code', monospace;   
-  font-size: 1.5rem;
-  font-weight: 300;
-  letter-spacing: 0.1em;
-  color: #bdbdbd;
-  margin-bottom: 0.6rem;
-}
-
-header h1 .name {
-  display: block;
-  font-family: 'Fira Code', monospace;  
-  font-size: clamp(2rem, 7vw, 4.5rem);
-}
-
-    header p {
-      font-size: 1.5rem;
-      font-weight: 300;
-      color: #bdbdbd;
-      margin-bottom: 2rem;
-      font-family: 'Fira Code', monospace;
-    }
-
-    .button-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1.5rem;
-      text-align: center;
-      margin-top: 2rem;
-      animation: slideIn 2s ease-in-out;
-      font-family: 'Fira Code', monospace;
-    }
-
-.buttons {
-  display: inline-flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.8rem;
-}
-
-.buttons a {
-  position: relative;
-  display: inline-block;
-  text-decoration: none;
-  padding: 0.9rem 2rem;
-  font-family: 'Fira Code', monospace;
-  font-size: 0.95rem;
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: #e8f0f8;
-  background: transparent;
-  border: 1px solid #64a0dc;
-  border-radius: 0;
-  transition: background 0.3s, border-color 0.3s, transform 0.3s;
-}
-
-/* the two corner stars */
-.buttons a::before,
-.buttons a::after {
-  content: "✦";
-  position: absolute;
-  font-size: 14px;
-  line-height: 1;
-  color: #64a0dc;
-  transition: transform 0.4s;
-}
-
-.buttons a::before {
-  top: -8px;
-  left: -7px;
-}
-
-.buttons a::after {
-  bottom: -8px;
-  right: -7px;
-}
-
-/* Download My CV: slightly filled */
-.cv-button {
-  background: rgba(100, 160, 220, 0.2);
-}
-
-/* hover for both */
-.buttons a:hover {
-  background: rgba(100, 160, 220, 0.3);
-  border-color: #9cc4ee;
-  transform: translateY(-3px);
-}
-
-.buttons a:hover::before,
-.buttons a:hover::after {
-  transform: rotate(90deg);
-}
-
-/* Styles for "Download My CV" button */
-.cv-button {
-  background: linear-gradient(135deg, #64a0dc, #185fa5);
-  color: #fff;
-  box-shadow: 0 5px 15px rgba(100, 160, 220, 0.4);
-  border: none;
-}
-
-.cv-button:hover {
-  transform: translateY(-3px) scale(1.1);
-  box-shadow: 0 10px 20px rgba(100, 160, 220, 0.6);
-}
-
-/* Styles for "Contact Me" button */
-.contact-button {
-  background: #fff;
-  color: #64a0dc;
-  border: 2px solid #64a0dc; /* Border to make it pop */
-  box-shadow: 0 5px 15px rgba(100, 160, 220, 0.2);
-}
-
-.contact-button:hover {
-  background: #64a0dc;
-  color: #fff;
-  box-shadow: 0 10px 20px rgba(100, 160, 220, 0.4);
-  transform: translateY(-3px) scale(1.1);
-}
-
-@keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(-20px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes slideIn {
-      0% { opacity: 0; transform: translateX(-100px); }
-      100% { opacity: 1; transform: translateX(0); }
-    }
-
-    section {
-      padding: 4rem 2rem;
-    }
-
-    h2 {
-      font-size: 2.5rem;
-      text-align: center;
-      margin-bottom: 2rem;
-      font-weight: 700;
-      color: #64a0dc;
-      animation: fadeIn 1.5s ease-in-out;
-    }
-
-   #about {
-  /* background: #0f1923 no-repeat center center/cover; */
-  background:
-  linear-gradient(rgba(15,25,35,0.88), rgba(15,25,35,0.88)),
-  url("src/stars2.jpeg") center / cover no-repeat;
-  background-attachment: fixed;
-}
-
-.about-simple {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2.5rem;
-  background: #16253a;
-  border: 1px solid rgba(100, 160, 220, 0.2);
-  border-radius: 16px;
-  padding: 2.5rem;
-  animation: slideIn 1.5s ease-in-out;
-}
-
-.about-photo-col {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-shrink: 0;
-}
-
-.about-photo {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid #64a0dc;
-}
-
-.about-name {
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: #f0f0f0;
-  margin-top: 1rem;
-  text-align: center;
-}
-
-.about-role {
-  color: #64a0dc;
-  font-family: 'Fira Code', monospace;
-  font-size: 0.9rem;
-  text-align: center;
-  margin-top: 0.2rem;
-}
-
-.about-content {
-  max-width: 600px;
-}
-
-.about-bio {
-  color: #bdbdbd;
-  font-size: 1rem;
-  line-height: 1.85;
-  margin-bottom: 1.6rem;
-}
-
-.about-skills h4 {
-  font-size: 0.75rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #64a0dc;
-  font-family: 'Fira Code', monospace;
-  margin-bottom: 0.9rem;
-}
-
-.skill-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-}
-
-.skill-tags span {
-  font-family: 'Fira Code', monospace;
-  font-size: 0.82rem;
-  background: rgba(100, 160, 220, 0.08);
-  border: 1px solid rgba(100, 160, 220, 0.2);
-  color: #64a0dc;
-  padding: 0.4rem 0.9rem;
-  border-radius: 20px;
-  transition: all 0.25s;
-}
-
-.skill-tags span:hover {
-  background: #64a0dc;
-  color: #0a0a0a;
-  transform: translateY(-2px);
-}
-
-@media (max-width: 700px) {
-  .about-simple {
-    flex-direction: column;
-    text-align: center;
-  }
-  .skill-tags {
-    justify-content: center;
-  }
-} 
-
-@media (max-width: 1024px) {
-  .about-card {
-    grid-template-columns: 1fr 1fr;
-  }
-  .about-github {
-    grid-column: 1 / -1;
-    border-left: none;
-    border-top: 1px solid rgba(100, 160, 220, 0.15);
-    padding-left: 0;
-    padding-top: 1.5rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .about-card {
-    grid-template-columns: 1fr;
-  }
-  .about-right {
-    border-left: none;
-    border-top: 1px solid rgba(100, 160, 220, 0.15);
-    padding-left: 0;
-    padding-top: 1.5rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .about-card {
-    grid-template-columns: 1fr;
-  }
-  .about-right {
-    border-left: none;
-    border-top: 1px solid rgba(100, 160, 220, 0.15);
-    padding-left: 0;
-    padding-top: 1.5rem;
-  }
-  .about-top {
-    flex-direction: column;
-    text-align: center;
-  }
-}
-
-    #skills {
-      background: url("src/theboys.png") no-repeat center center/cover;
-      background-attachment: fixed;
-    }
-
-   .skills {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem 1.6rem;;
-  max-width: 860px;
-  margin: 0 auto;
-  animation: slideIn 1.5s ease-in-out;
-}
-
-.skill-box {
-  width: 110px;
-  background: #16253a;
-  border: 2px solid #64a0dc;
-  border-bottom-width: 6px;
-  border-radius: 0;
-  padding: 1rem 0.5rem 0.8rem;
-  text-align: center;
-  transition: transform 0.15s steps(2), background 0.15s, border-color 0.15s;
-}
-
-.skill-box:hover {
-  transform: translateY(-4px);
-  background: #1d3350;
-  border-color: #9cc4ee;
-}
-
-.skill-box img {
-  display: block;
-  width: 40px;
-  height: 40px;
-  margin: 0 auto 0.6rem;
-}
-
-.skill-box h3 {
-  font-family: 'Fira Code', monospace;
-  font-size: 0.75rem;
-  font-weight: 400;
-  color: #cfd8e3;
-}
-
-    #projects {
-      /* background: #0f1923 no-repeat center center/cover; */
-      background:
-      linear-gradient(rgba(15,25,35,0.88), rgba(15,25,35,0.88)),
-      url("src/stars2.jpeg") center / cover no-repeat;
-      background-attachment: fixed;
-    }
-
-    .projects {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-  align-items: start; 
-}
-
-.project-card {
-  background: #16253a;
-  border-radius: 10px;
-  overflow: hidden;
-  border: 1px solid rgba(100, 160, 220, 0.1);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
-  display: flex;
-  flex-direction: column;
-}
-
-.project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 30px rgba(1100, 160, 220, 0.2);
-  border-color: rgba(100, 160, 220, 0.4);
-}
-
-.project-accent {
-  height: 3px;
-  background: linear-gradient(90deg, #64a0dc, #185fa5);
-}
-
-.project-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-.project-body {
-  padding: 1.2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-  flex: 1;
-}
-
-.project-card h3 {
-  font-size: 1.3rem;
-  color: #f0f0f0;
-  margin: 0;
-}
-
-.project-type {
-  font-size: 0.75rem;
-  color: #757575;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-family: 'Fira Code', monospace;
-}
-
-.project-card p {
-  font-size: 0.92rem;
-  color: #bdbdbd;
-  line-height: 1.7;
-  margin: 0;
-}
-
-.project-stack {
-  display: none;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 0.2rem;
-}
-
-.project-tag {
-  background: rgba(100, 160, 220, 0.1);
-  color: #64a0dc;
-  font-size: 0.75rem;
-  padding: 3px 10px;
-  border-radius: 20px;
-  border: 1px solid rgba(100, 160, 220, 0.25);
-  font-family: 'Fira Code', monospace;
-}
-
-.project-footer {
-  display: flex;
-  gap: 1rem;
-  margin-top: auto;
-  padding-top: 0.8rem;
-  border-top: 1px solid rgba(100, 160, 220, 0.1);
-}
-
-.project-footer a {
-  text-decoration: none;
-  color: #64a0dc;
-  font-weight: 600;
-  font-size: 0.88rem;
-  transition: color 0.3s;
-}
-
-.project-footer a:hover {
-  color: #fff;
-}
-
-.project-desc {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  min-height: calc(0.92rem * 1.7 * 3);
-}
-
-.project-card.expanded .project-desc {
-  display: block;
-  -webkit-line-clamp: unset;
-  line-clamp: unset;
-  overflow: visible;
-}
-
-.project-card.expanded .project-stack {
-  display: flex;
-}
-
-.read-more {
-  align-self: flex-start;
-  background: none;
-  border: none;
-  padding: 0;
-  color: #64a0dc;
-  font-family: 'Fira Code', monospace;
-  font-size: 0.8rem;
-  cursor: pointer;
-  transition: color 0.3s;
-}
-
-.read-more:hover {
-  color: #fff;
-}
-
-    .section-divider {
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="src/favicon.jpg" />
+    <title>Vaishali Wankhede Portfolio</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Fira+Code:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Roboto", sans-serif;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: #0f1923;
+        color: #e0e0e0;
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #16253a;
+        padding: 0.9rem 2rem;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        border-left: 3px solid #64a0dc;
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+
+      .nav-links a {
+        position: relative;
+        text-decoration: none;
+        color: #9e9e9e;
+        font-family: "Fira Code", monospace;
+        font-size: 0.8rem;
+        font-weight: 400;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        padding: 0.55rem 0.95rem;
+        transition: color 0.2s;
+      }
+
+      /* the two corner brackets */
+      .nav-links a::before,
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        width: 7px;
+        height: 7px;
+        opacity: 0;
+        transition: opacity 0.2s;
+      }
+
+      .nav-links a::before {
+        top: 0;
+        left: 0;
+        border-top: 1.5px solid #64a0dc;
+        border-left: 1.5px solid #64a0dc;
+      }
+
+      .nav-links a::after {
+        bottom: 0;
+        right: 0;
+        border-bottom: 1.5px solid #64a0dc;
+        border-right: 1.5px solid #64a0dc;
+      }
+
+      .nav-links a:hover {
+        color: #e8f0f8;
+      }
+
+      .nav-links a:hover::before,
+      .nav-links a:hover::after,
+      .nav-links a.active::before,
+      .nav-links a.active::after {
+        opacity: 1;
+      }
+
+      .nav-links a.active {
+        color: #64a0dc;
+      }
+
+      .menu {
+        display: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: #64a0dc;
+      }
+
+      @media (max-width: 768px) {
+        .menu {
+          display: block;
+        }
+
+        .nav-links {
+          display: none;
+          flex-direction: column;
+          background-color: #16253a;
+          position: absolute;
+          top: 60px;
+          right: 20px;
+          padding: 1rem;
+          border-radius: 10px;
+          border: 1px solid rgba(100, 160, 220, 0.2);
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+          gap: 0;
+        }
+
+        .nav-links.show {
+          display: flex;
+        }
+
+        .nav-links a {
+          padding: 0.6rem 1rem;
+          font-size: 1rem;
+          text-align: right;
+          border-radius: 6px;
+        }
+
+        .nav-cta {
+          margin-left: 0;
+          margin-top: 0.4rem;
+          text-align: center;
+        }
+      }
+
+      header {
+        text-align: center;
+        padding: 10rem 2rem;
+        background: url("src/stars2.jpeg") no-repeat center center/cover;
+        /*clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);*/
+        animation: fadeIn 2s ease-in-out;
+      }
+
+      header h1 {
+        margin-bottom: 1.5rem;
+        font-family: "Fira Code", monospace;
+        color: #e8f0f8;
+        line-height: 1.1;
+      }
+
+      header h1 .hi {
+        display: block;
+        font-family: "Fira Code", monospace;
+        font-size: 1.5rem;
+        font-weight: 300;
+        letter-spacing: 0.1em;
+        color: #bdbdbd;
+        margin-bottom: 0.6rem;
+      }
+
+      header h1 .name {
+        display: block;
+        font-family: "Fira Code", monospace;
+        font-size: clamp(2rem, 7vw, 4.5rem);
+      }
+
+      header p {
+        font-size: 1.5rem;
+        font-weight: 300;
+        color: #bdbdbd;
+        margin-bottom: 2rem;
+        font-family: "Fira Code", monospace;
+      }
+
+      .button-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        text-align: center;
+        margin-top: 2rem;
+        animation: slideIn 2s ease-in-out;
+        font-family: "Fira Code", monospace;
+      }
+
+      .buttons {
+        display: inline-flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.8rem;
+      }
+
+      .buttons a {
+        position: relative;
+        display: inline-block;
+        text-decoration: none;
+        padding: 0.9rem 2rem;
+        font-family: "Fira Code", monospace;
+        font-size: 0.95rem;
+        font-weight: 500;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #e8f0f8;
+        background: transparent;
+        border: 1px solid #64a0dc;
+        border-radius: 0;
+        transition:
+          background 0.3s,
+          border-color 0.3s,
+          transform 0.3s;
+      }
+
+      /* the two corner stars */
+      .buttons a::before,
+      .buttons a::after {
+        content: "✦";
+        position: absolute;
+        font-size: 14px;
+        line-height: 1;
+        color: #64a0dc;
+        transition: transform 0.4s;
+      }
+
+      .buttons a::before {
+        top: -8px;
+        left: -7px;
+      }
+
+      .buttons a::after {
+        bottom: -8px;
+        right: -7px;
+      }
+
+      /* Download My CV: slightly filled */
+      .cv-button {
+        background: rgba(100, 160, 220, 0.2);
+      }
+
+      /* hover for both */
+      .buttons a:hover {
+        background: rgba(100, 160, 220, 0.3);
+        border-color: #9cc4ee;
+        transform: translateY(-3px);
+      }
+
+      .buttons a:hover::before,
+      .buttons a:hover::after {
+        transform: rotate(90deg);
+      }
+
+      /* Styles for "Download My CV" button */
+      .cv-button {
+        background: linear-gradient(135deg, #64a0dc, #185fa5);
+        color: #fff;
+        box-shadow: 0 5px 15px rgba(100, 160, 220, 0.4);
+        border: none;
+      }
+
+      .cv-button:hover {
+        transform: translateY(-3px) scale(1.1);
+        box-shadow: 0 10px 20px rgba(100, 160, 220, 0.6);
+      }
+
+      /* Styles for "Contact Me" button */
+      .contact-button {
+        background: #fff;
+        color: #64a0dc;
+        border: 2px solid #64a0dc; /* Border to make it pop */
+        box-shadow: 0 5px 15px rgba(100, 160, 220, 0.2);
+      }
+
+      .contact-button:hover {
+        background: #64a0dc;
+        color: #fff;
+        box-shadow: 0 10px 20px rgba(100, 160, 220, 0.4);
+        transform: translateY(-3px) scale(1.1);
+      }
+
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes slideIn {
+        0% {
+          opacity: 0;
+          transform: translateX(-100px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      section {
+        padding: 4rem 2rem;
+      }
+
+      h2 {
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 2rem;
+        font-weight: 700;
+        color: #64a0dc;
+        animation: fadeIn 1.5s ease-in-out;
+      }
+
+      #about {
+        /* background: #0f1923 no-repeat center center/cover; */
+        background:
+          linear-gradient(rgba(15, 25, 35, 0.88), rgba(15, 25, 35, 0.88)),
+          url("src/stars2.jpeg") center / cover no-repeat;
+        background-attachment: fixed;
+      }
+
+      .about-simple {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2.5rem;
+        background: #16253a;
+        border: 1px solid rgba(100, 160, 220, 0.2);
+        border-radius: 16px;
+        padding: 2.5rem;
+        animation: slideIn 1.5s ease-in-out;
+      }
+
+      .about-photo-col {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-shrink: 0;
+      }
+
+      .about-photo {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid #64a0dc;
+      }
+
+      .about-name {
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: #f0f0f0;
+        margin-top: 1rem;
+        text-align: center;
+      }
+
+      .about-role {
+        color: #64a0dc;
+        font-family: "Fira Code", monospace;
+        font-size: 0.9rem;
+        text-align: center;
+        margin-top: 0.2rem;
+      }
+
+      .about-content {
+        max-width: 600px;
+      }
+
+      .about-bio {
+        color: #bdbdbd;
+        font-size: 1rem;
+        line-height: 1.85;
+        margin-bottom: 1.6rem;
+      }
+
+      .about-skills h4 {
+        font-size: 0.75rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #64a0dc;
+        font-family: "Fira Code", monospace;
+        margin-bottom: 0.9rem;
+      }
+
+      .skill-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+      }
+
+      .skill-tags span {
+        font-family: "Fira Code", monospace;
+        font-size: 0.82rem;
+        background: rgba(100, 160, 220, 0.08);
+        border: 1px solid rgba(100, 160, 220, 0.2);
+        color: #64a0dc;
+        padding: 0.4rem 0.9rem;
+        border-radius: 20px;
+        transition: all 0.25s;
+      }
+
+      .skill-tags span:hover {
+        background: #64a0dc;
+        color: #0a0a0a;
+        transform: translateY(-2px);
+      }
+
+      @media (max-width: 700px) {
+        .about-simple {
+          flex-direction: column;
+          text-align: center;
+        }
+        .skill-tags {
+          justify-content: center;
+        }
+      }
+
+      @media (max-width: 1024px) {
+        .about-card {
+          grid-template-columns: 1fr 1fr;
+        }
+        .about-github {
+          grid-column: 1 / -1;
+          border-left: none;
+          border-top: 1px solid rgba(100, 160, 220, 0.15);
+          padding-left: 0;
+          padding-top: 1.5rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .about-card {
+          grid-template-columns: 1fr;
+        }
+        .about-right {
+          border-left: none;
+          border-top: 1px solid rgba(100, 160, 220, 0.15);
+          padding-left: 0;
+          padding-top: 1.5rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .about-card {
+          grid-template-columns: 1fr;
+        }
+        .about-right {
+          border-left: none;
+          border-top: 1px solid rgba(100, 160, 220, 0.15);
+          padding-left: 0;
+          padding-top: 1.5rem;
+        }
+        .about-top {
+          flex-direction: column;
+          text-align: center;
+        }
+      }
+
+      #skills {
+        background: url("src/theboys.png") no-repeat center center/cover;
+        background-attachment: fixed;
+      }
+
+      .skills {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem 1.6rem;
+        max-width: 860px;
+        margin: 0 auto;
+        animation: slideIn 1.5s ease-in-out;
+      }
+
+      .skill-box {
+        width: 110px;
+        background: #16253a;
+        border: 2px solid #64a0dc;
+        border-bottom-width: 6px;
+        border-radius: 0;
+        padding: 1rem 0.5rem 0.8rem;
+        text-align: center;
+        transition:
+          transform 0.15s steps(2),
+          background 0.15s,
+          border-color 0.15s;
+      }
+
+      .skill-box:hover {
+        transform: translateY(-4px);
+        background: #1d3350;
+        border-color: #9cc4ee;
+      }
+
+      .skill-box img {
+        display: block;
+        width: 40px;
+        height: 40px;
+        margin: 0 auto 0.6rem;
+      }
+
+      .skill-box h3 {
+        font-family: "Fira Code", monospace;
+        font-size: 0.75rem;
+        font-weight: 400;
+        color: #cfd8e3;
+      }
+
+      #projects {
+        /* background: #0f1923 no-repeat center center/cover; */
+        background:
+          linear-gradient(rgba(15, 25, 35, 0.88), rgba(15, 25, 35, 0.88)),
+          url("src/stars2.jpeg") center / cover no-repeat;
+        background-attachment: fixed;
+      }
+
+      .projects {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+        align-items: start;
+      }
+
+      .project-card {
+        background: #16253a;
+        border-radius: 10px;
+        overflow: hidden;
+        border: 1px solid rgba(100, 160, 220, 0.1);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s,
+          border-color 0.3s;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .project-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 30px rgba(1100, 160, 220, 0.2);
+        border-color: rgba(100, 160, 220, 0.4);
+      }
+
+      .project-accent {
+        height: 3px;
+        background: linear-gradient(90deg, #64a0dc, #185fa5);
+      }
+
+      .project-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+
+      .project-body {
+        padding: 1.2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+        flex: 1;
+      }
+
+      .project-card h3 {
+        font-size: 1.3rem;
+        color: #f0f0f0;
+        margin: 0;
+      }
+
+      .project-type {
+        font-size: 0.75rem;
+        color: #757575;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-family: "Fira Code", monospace;
+      }
+
+      .project-card p {
+        font-size: 0.92rem;
+        color: #bdbdbd;
+        line-height: 1.7;
+        margin: 0;
+      }
+
+      .project-stack {
+        display: none;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 0.2rem;
+      }
+
+      .project-tag {
+        background: rgba(100, 160, 220, 0.1);
+        color: #64a0dc;
+        font-size: 0.75rem;
+        padding: 3px 10px;
+        border-radius: 20px;
+        border: 1px solid rgba(100, 160, 220, 0.25);
+        font-family: "Fira Code", monospace;
+      }
+
+      .project-footer {
+        display: flex;
+        gap: 1rem;
+        margin-top: auto;
+        padding-top: 0.8rem;
+        border-top: 1px solid rgba(100, 160, 220, 0.1);
+      }
+
+      .project-footer a {
+        text-decoration: none;
+        color: #64a0dc;
+        font-weight: 600;
+        font-size: 0.88rem;
+        transition: color 0.3s;
+      }
+
+      .project-footer a:hover {
+        color: #fff;
+      }
+
+      .project-desc {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        min-height: calc(0.92rem * 1.7 * 3);
+      }
+
+      .project-card.expanded .project-desc {
+        display: block;
+        -webkit-line-clamp: unset;
+        line-clamp: unset;
+        overflow: visible;
+      }
+
+      .project-card.expanded .project-stack {
+        display: flex;
+      }
+
+      .read-more {
+        align-self: flex-start;
+        background: none;
+        border: none;
+        padding: 0;
+        color: #64a0dc;
+        font-family: "Fira Code", monospace;
+        font-size: 0.8rem;
+        cursor: pointer;
+        transition: color 0.3s;
+      }
+
+      .read-more:hover {
+        color: #fff;
+      }
+
+      .section-divider {
         border: none;
         height: 2px;
-        background: #64a0dc; /* Choose a color that matches your theme */
+        background: #64a0dc;
         margin: 2rem 0;
-        width: 80%; /* Adjust the width as needed */
+        width: 80%;
         margin-left: auto;
         margin-right: auto;
-}
+      }
 
-#contact {
-  background:
-    linear-gradient(rgba(15,25,35,0.88), rgba(15,25,35,0.88)),
-    url("src/stars2.jpeg") center / cover no-repeat;
-}
-    
+      #contact {
+        background:
+          linear-gradient(rgba(15, 25, 35, 0.88), rgba(15, 25, 35, 0.88)),
+          url("src/stars2.jpeg") center / cover no-repeat;
+      }
 
-    .contact {
-  animation: fadeIn 2s;
-  max-width: 640px;
-  margin: 0 auto;
-}
+      .contact {
+        animation: fadeIn 2s;
+        max-width: 640px;
+        margin: 0 auto;
+      }
 
-.contact-header {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 2.5rem;
-}
+      .contact-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 2.5rem;
+      }
 
-.contact-line {
-  flex: 1;
-  height: 1px;
-  background: linear-gradient(90deg, #64a0dc, transparent);
-}
+      .contact-line {
+        flex: 1;
+        height: 1px;
+        background: linear-gradient(90deg, #64a0dc, transparent);
+      }
 
-.contact-line.right {
-  background: linear-gradient(90deg, transparent, #64a0dc);
-}
+      .contact-line.right {
+        background: linear-gradient(90deg, transparent, #64a0dc);
+      }
 
-.contact-header span {
-  color: #64a0dc;
-  font-size: 0.85rem;
-  font-family: 'Fira Code', monospace;
-  font-weight: 600;
-  white-space: nowrap;
-}
+      .contact-header span {
+        color: #64a0dc;
+        font-size: 0.85rem;
+        font-family: "Fira Code", monospace;
+        font-weight: 600;
+        white-space: nowrap;
+      }
 
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.8rem;
-}
+      .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.8rem;
+      }
 
-.contact-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-}
+      .contact-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
 
-.contact-field {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-}
+      .contact-field {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+      }
 
-.contact-field label {
-  font-size: 0.72rem;
-  font-family: 'Fira Code', monospace;
-  color: #757575;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
+      .contact-field label {
+        font-size: 0.72rem;
+        font-family: "Fira Code", monospace;
+        color: #757575;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
 
-.contact-form input,
-.contact-form textarea {
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid rgba(100, 160, 220, 0.3);
-  color: #e0e0e0;
-  font-size: 1rem;
-  font-family: 'Roboto', sans-serif;
-  padding: 0.4rem 0;
-  width: 100%;
-  outline: none;
-  transition: border-color 0.3s;
-}
+      .contact-form input,
+      .contact-form textarea {
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid rgba(100, 160, 220, 0.3);
+        color: #e0e0e0;
+        font-size: 1rem;
+        font-family: "Roboto", sans-serif;
+        padding: 0.4rem 0;
+        width: 100%;
+        outline: none;
+        transition: border-color 0.3s;
+      }
 
-.contact-form input:focus,
-.contact-form textarea:focus {
-  border-bottom-color: #bb86fc;
-}
+      .contact-form input:focus,
+      .contact-form textarea:focus {
+        border-bottom-color: #bb86fc;
+      }
 
-.contact-form input::placeholder,
-.contact-form textarea::placeholder {
-  color: #444;
-}
+      .contact-form input::placeholder,
+      .contact-form textarea::placeholder {
+        color: #444;
+      }
 
-.contact-form textarea {
-  resize: none;
-  height: 80px;
-}
+      .contact-form textarea {
+        resize: none;
+        height: 80px;
+      }
 
-.contact-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 0.5rem;
-}
+      .contact-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 0.5rem;
+      }
 
-.contact-handle {
-  font-size: 0.8rem;
-  font-family: 'Fira Code', monospace;
-  color: #757575;
-}
+      .contact-handle {
+        font-size: 0.8rem;
+        font-family: "Fira Code", monospace;
+        color: #757575;
+      }
 
-.contact-form button {
-  background: #64a0dc;
-  color: #0a0a0a;
-  border: none;
-  border-radius: 6px;
-  padding: 0.7rem 2rem;
-  font-size: 0.95rem;
-  font-weight: 700;
-  font-family: 'Fira Code', monospace;
-  cursor: pointer;
-  transition: background 0.3s, transform 0.2s;
-}
+      .contact-form button {
+        background: #64a0dc;
+        color: #0a0a0a;
+        border: none;
+        border-radius: 6px;
+        padding: 0.7rem 2rem;
+        font-size: 0.95rem;
+        font-weight: 700;
+        font-family: "Fira Code", monospace;
+        cursor: pointer;
+        transition:
+          background 0.3s,
+          transform 0.2s;
+      }
 
-.contact-form button:hover {
-  background: #185fa5;
-  color: #fff;
-  transform: translateY(-2px);
-}
+      .contact-form button:hover {
+        background: #185fa5;
+        color: #fff;
+        transform: translateY(-2px);
+      }
 
-@media (max-width: 768px) {
-  .contact-row {
-    grid-template-columns: 1fr;
-  }
-}
-
-    footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      background-color: #16253a;
-      color: #bdbdbd;
-      font-size: 1rem;
-    }
-
-    footer .socials a {
-      margin: 0 0.5rem;
-      color: #64a0dc;
-      text-decoration: none;
-      font-size: 1.5rem;
-      transition: color 0.3s;
-    }
-
-    footer .socials a:hover {
-      color: #185fa5;
-    }
-
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(-20px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes slideIn {
-      0% { opacity: 0; transform: translateX(-100px); }
-      100% { opacity: 1; transform: translateX(0); }
-    }
-    
-    .logo {
-  font-family: 'Fira Code', monospace;
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #64a0dc;
-}
-
-.logo span {
-  display: inline-block;
-  transition: color 0.3s, transform 0.3s;
-  cursor: pointer;
-}
-
-.logo span:hover {
-  color: #3700b3;
-  transform: scale(1.1);
-}
-
-    
-  </style>
-    <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const menuIcon = document.querySelector('.menu');
-      const navLinks = document.querySelector('.nav-links');
-      const links = document.querySelectorAll('.nav-links a');
-      const sections = [...links].map(a => document.querySelector(a.getAttribute('href')));
-
-      menuIcon.addEventListener('click', () => {
-        navLinks.classList.toggle('show');
-      });
-
-      // close mobile menu after tapping a link
-      links.forEach(a => a.addEventListener('click', () => navLinks.classList.remove('show')));
-
-      // highlight the link of the section you're viewing
-      const spy = () => {
-        const y = window.scrollY + 120;
-        let current = 0;
-        sections.forEach((sec, i) => {
-          if (sec && sec.getBoundingClientRect().top + window.scrollY <= y) current = i;
-        });
-        if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 2) {
-          current = links.length - 1;
+      @media (max-width: 768px) {
+        .contact-row {
+          grid-template-columns: 1fr;
         }
-        links.forEach((a, i) => a.classList.toggle('active', i === current));
-      };
+      }
 
-      window.addEventListener('scroll', spy);
-      spy();
-    });
-  </script>
-</head>
-<body>
-  <nav>
-  <div class="logo">
-    <span>&lt;VW/&gt;</span>
-  </div>
-  <div class="menu">
-    <i class="fas fa-bars"></i>
-  </div>
-  <div class="nav-links">
-    <a href="#home" class="active">Home</a>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact" class="nav-cta">Contact</a>
-  </div>
-</nav>
+      footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        background-color: #16253a;
+        color: #bdbdbd;
+        font-size: 1rem;
+      }
 
-  <header id="home">
-    <h1>
-      <span class="hi">Hi, I'm</span>
-      <span class="name">Vaishali Wankhede</span>
-    </h1>
-    <p>Frontend Developer | React & JavaScript</p>
-    <div class="button-container">
-      <p>Want to know more about me?</p>
-      <div class="buttons">
-        <a href="vaishali_CV.pdf" download class="cv-button">Download My CV</a>
-        <a href="#contact" class="contact-button">Contact Me</a>
-      </div>
-    </div>
-  </header>
+      footer .socials a {
+        margin: 0 0.5rem;
+        color: #64a0dc;
+        text-decoration: none;
+        font-size: 1.5rem;
+        transition: color 0.3s;
+      }
 
-<section id="about">
-  <h2>About Me</h2>
-  <div class="about-simple">
-    <div class="about-photo-col">
-      <img src="src/vaishali.jpg" alt="Vaishali Wankhede" class="about-photo">
-      <div class="about-name">Vaishali Wankhede</div>
-      <div class="about-role">Frontend Developer</div>
-    </div>
-    <div class="about-content">
-      <p class="about-bio">
-        Hi, I'm Vaishali, a recent Computer Science graduate currently focused on React and frontend development. I like solving problems that sit right at the intersection of design and code, and I'm always working on something new to sharpen my skills. When I'm not building, I'm probably breaking something on purpose just to understand how it works.
-      </p>
-      <div class="about-skills">
-        <div class="skill-tags">
-          <span>React</span>
-          <span>JavaScript</span>
-          <span>HTML/CSS</span>
-          <span>MongoDB</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+      footer .socials a:hover {
+        color: #185fa5;
+      }
 
-  <section id="skills">
-    <h2>Tech Stack</h2>
-    <div class="skills">
-      <div class="skill-box">
-        <img src="https://img.icons8.com/?size=100&id=asWSSTBrDlTW&format=png&color=000000" alt="Reactjs">
-        <h3>React</h3>
-      </div>
-      <div class="skill-box">
-        <img src="https://img.icons8.com/color/96/javascript--v1.png" alt="JavaScript">
-        <h3>JavaScript</h3>
-      </div>
-      <div class="skill-box">
-        <img src="https://img.icons8.com/?size=100&id=v8RpPQUwv0N8&format=png&color=000000" alt="HTML">
-        <h3>HTML</h3>
-      </div>
-      <div class="skill-box">
-        <img src="https://img.icons8.com/?size=100&id=x7XMNGh2vdqA&format=png&color=000000" alt="TailwindCSS">
-        <h3>Tailwind CSS</h3>
-      </div>
-      <div class="skill-box">
-        <img src="https://img.icons8.com/?size=100&id=13679&format=png&color=000000" alt="JavaScript">
-        <h3>Java</h3>
-      </div>
-      <div class="skill-box">
-        <img src="https://img.icons8.com/color/48/python--v1.png" alt="Python">
-        <h3>Python</h3>
-      </div>
-      <div class="skill-box">
-        <img src="https://img.icons8.com/color/48/mysql-logo.png" alt="MySQL">
-        <h3>MySQL</h3>
-      </div>
-      <div class="skill-box">
-        <img src="https://img.icons8.com/color/48/mongodb.png" alt="MongoDB">
-        <h3>MongoDB</h3>
-      </div>
-      <div class="skill-box">
-        <img src="https://img.icons8.com/?size=100&id=54087&format=png&color=000000" alt="Nodejs">
-        <h3>Nodejs</h3>
-      </div>
-      <div class="skill-box">
-        <img src="https://img.icons8.com/color/48/git.png" alt="git">
-        <h3>git</h3>
-      </div>
-      <div class="skill-box">
-        <img src="https://img.icons8.com/color/48/github--v1.png" alt="GitHub">
-        <h3>GitHub</h3>
-      </div>
-    </div>
-  </section>
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
 
-  <section id="projects">
-  <h2>Projects</h2>
-  <div class="projects">
+      @keyframes slideIn {
+        0% {
+          opacity: 0;
+          transform: translateX(-100px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
 
-    <div class="project-card">
-      <div class="project-accent"></div>
-      <img src="src/binge.png" alt="Bingetrackr">
-      <div class="project-body">
-        <div>
-          <h3>Bingetrackr</h3>
-          <div class="project-type">Full-stack · Web App</div>
-        </div>
-        <p class="project-desc">A web app to track movies & TV series with watchlists, episode tracking, and social sharing. Built with HTML, CSS, JavaScript, Node.js, and MongoDB Atlas. Deployed on Vercel and Render.</p>
-        <div class="project-stack">
-          <span class="project-tag">JavaScript</span>
-          <span class="project-tag">Node.js</span>
-          <span class="project-tag">MongoDB</span>
-          <span class="project-tag">Vercel</span>
-        </div>
-        <button class="read-more" type="button" aria-expanded="false">Read more ↓</button>
-        <div class="project-footer">
-          <a href="https://bingetrackr.vercel.app" target="_blank">Live Demo ↗</a>
-        </div>
-      </div>
-    </div>
+      .logo {
+        font-family: "Fira Code", monospace;
+        font-size: 1.6rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        color: #e8f0f8;
+        cursor: pointer;
+      }
 
-    <div class="project-card">
-      <div class="project-accent"></div>
-      <img src="src/logojobtracker.jpeg" alt="job-tracker">
-      <div class="project-body">
-        <div>
-          <h3>Job Application Tracker</h3>
-          <div class="project-type">Chrome Extension</div>
-        </div>
-        <p class="project-desc">A browser extension that auto detects job listings you visit and logs them into a dashboard with status tracking.</p>
-        <div class="project-stack">
-          <span class="project-tag">Chrome Storage API </span>
-          <span class="project-tag">Vanilla JS</span>
-          <span class="project-tag">Manifest V3</span>
-        </div>
-        <button class="read-more" type="button" aria-expanded="false">Read more ↓</button>
-        <div class="project-footer">
-          <a href="https://github.com/vaishbil/job-tracker" target="_blank">GitHub ↗</a>
-        </div>
-      </div>
-    </div>
+      .logo b,
+      .logo i {
+        display: inline-block;
+        font-family: "Fira Code", monospace;
+        font-style: normal;
+        color: #64a0dc;
+        transition: transform 0.3s;
+      }
 
-    <div class="project-card">
-      <div class="project-accent"></div>
-      <img src="src/volt.png" alt="job-tracker">
-      <div class="project-body">
-        <div>
-          <h3>Volt</h3>
-          <div class="project-type">Web App</div>
-        </div>
-        <p class="project-desc">An AI-powered productivity and task management application developed for the Vibe2Ship Hackathon using Google AI Studio. Features intelligent task prioritisation, habit tracking, focus tools, and AI-assisted productivity to help users manage their daily workflow.</p>
-        <div class="project-stack">
-          <span class="project-tag">React </span>
-          <span class="project-tag">TypeScript</span>
-          <span class="project-tag">Tailwind CSS</span>
-          <span class="project-tag">Google Gemini Api</span>
-          <span class="project-tag">Google Ai Studio</span>
-        </div>
-        <button class="read-more" type="button" aria-expanded="false">Read more ↓</button>
-        <div class="project-footer">
-          <a href="https://volt-839071485135.asia-southeast1.run.app/" target="_blank">Demo ↗</a>
-          <a href="https://github.com/vaishbil/volt" target="_blank">GitHub ↗</a>
-        </div>
-      </div>
-    </div>
+      .logo b {
+        font-weight: 400;
+      }
 
-    <div class="project-card">
-      <div class="project-accent"></div>
-      <img src="src/sonder1.png" alt="sonder">
-      <div class="project-body">
-        <div>
-          <h3>Sonder</h3>
-          <div class="project-type">Full Stack - Web App</div>
-        </div>
-        <p class="project-desc">A real-time community chat platform — create servers, organize conversations into channels, and chat live with friends.</p>
-        <div class="project-stack">
-          <span class="project-tag">React </span>
-          <span class="project-tag">Tailwind CSS</span>
-          <span class="project-tag">Socket-io</span>
-          <span class="project-tag">Nodejs</span>
-          <span class="project-tag">MongoDB Atlas</span>
-          <span class="project-tag">Cloudinary</span>
-          
-        </div>
-        <button class="read-more" type="button" aria-expanded="false">Read more ↓</button>
-        <div class="project-footer">
-          <a href="https://sonder-tau-six.vercel.app/" target="_blank">Live Site ↗</a>
-          <a href="https://github.com/vaishbil/sonder" target="_blank">GitHub ↗</a>
-        </div>
-      </div>
-    </div>
+      .logo:hover b:first-child {
+        transform: translateX(-5px);
+      }
 
-    <!-- <div class="project-card">
-      <div class="project-accent"></div>
-      <img src="obdet.png" alt="Object Detection">
-      <div class="project-body">
-        <div>
-          <h3>Object Detection</h3>
-          <div class="project-type">ML · Computer Vision</div>
-        </div>
-        <p>Real-time object detection and counting system built using Python, OpenCV, and YOLO — designed for use with a Pluto drone.</p>
-        <div class="project-stack">
-          <span class="project-tag">Python</span>
-          <span class="project-tag">OpenCV</span>
-          <span class="project-tag">YOLO</span>
-        </div>
-        <div class="project-footer">
-          <a href="https://github.com/vaishbil/Object-Detection-and-Counting-For-Pluto-Drone.git" target="_blank">GitHub ↗</a>
-        </div>
-      </div>
-    </div> -->
+      .logo:hover b:last-child {
+        transform: translateX(5px);
+      }
 
-    <!-- <div class="project-card">
-      <div class="project-accent"></div>
-      <img src="pluto drone.png" alt="Drone Gesture Control">
-      <div class="project-body">
-        <div>
-          <h3>Drone Gesture Control</h3>
-          <div class="project-type">ML · Computer Vision</div>
-        </div>
-        <p>Controls a Pluto drone via real-time hand gestures using OpenCV and a trained ML model. Supports take-off, landing, and directional movement.</p>
-        <div class="project-stack">
-          <span class="project-tag">Python</span>
-          <span class="project-tag">OpenCV</span>
-          <span class="project-tag">ML</span>
-        </div>
-        <div class="project-footer">
-          <a href="https://github.com/vaishbil/Drone_Gesture_Control.git" target="_blank">GitHub ↗</a>
-        </div>
-      </div>
-    </div> -->
+      .logo:hover i {
+        transform: rotate(-18deg);
+      }
+    </style>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const menuIcon = document.querySelector(".menu");
+        const navLinks = document.querySelector(".nav-links");
+        const links = document.querySelectorAll(".nav-links a");
+        const sections = [...links].map((a) =>
+          document.querySelector(a.getAttribute("href")),
+        );
 
-  </div>
-</section>
-      
-   
-  <hr class="section-divider">
-  <section id="contact">
-  <h2>Contact Me</h2>
-  <div class="contact">
-    <div class="contact-header">
-      <div class="contact-line"></div>
-      <span>get in touch</span>
-      <div class="contact-line right"></div>
-    </div>
-    <form class="contact-form" id="contact-form" action="https://formspree.io/f/xzdwadlj" method="POST">
-      <div class="contact-row">
-        <div class="contact-field">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" placeholder="your name" required>
+        menuIcon.addEventListener("click", () => {
+          navLinks.classList.toggle("show");
+        });
+
+        // close mobile menu after tapping a link
+        links.forEach((a) =>
+          a.addEventListener("click", () => navLinks.classList.remove("show")),
+        );
+
+        // highlight the link of the section you're viewing
+        const spy = () => {
+          const y = window.scrollY + 120;
+          let current = 0;
+          sections.forEach((sec, i) => {
+            if (sec && sec.getBoundingClientRect().top + window.scrollY <= y)
+              current = i;
+          });
+          if (
+            window.innerHeight + window.scrollY >=
+            document.body.offsetHeight - 2
+          ) {
+            current = links.length - 1;
+          }
+          links.forEach((a, i) => a.classList.toggle("active", i === current));
+        };
+
+        window.addEventListener("scroll", spy);
+        spy();
+      });
+    </script>
+  </head>
+  <body>
+    <nav>
+      <div class="logo"><b>&lt;</b>VW<i>/</i><b>&gt;</b></div>
+      <div class="menu">
+        <i class="fas fa-bars"></i>
+      </div>
+      <div class="nav-links">
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact" class="nav-cta">Contact</a>
+      </div>
+    </nav>
+
+    <header id="home">
+      <h1>
+        <span class="hi">Hi, I'm</span>
+        <span class="name">Vaishali Wankhede</span>
+      </h1>
+      <p>Frontend Developer | React & JavaScript</p>
+      <div class="button-container">
+        <p>Want to know more about me?</p>
+        <div class="buttons">
+          <a href="vaishali_CV.pdf" download class="cv-button"
+            >Download My CV</a
+          >
+          <a href="#contact" class="contact-button">Contact Me</a>
         </div>
-        <div class="contact-field">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="you@email.com" required>
+      </div>
+    </header>
+
+    <section id="about">
+      <h2>About Me</h2>
+      <div class="about-simple">
+        <div class="about-photo-col">
+          <img
+            src="src/vaishali.jpg"
+            alt="Vaishali Wankhede"
+            class="about-photo"
+          />
+          <div class="about-name">Vaishali Wankhede</div>
+          <div class="about-role">Frontend Developer</div>
+        </div>
+        <div class="about-content">
+          <p class="about-bio">
+            Hi, I'm Vaishali, a recent Computer Science graduate currently
+            focused on React and frontend development. I like solving problems
+            that sit right at the intersection of design and code, and I'm
+            always working on something new to sharpen my skills. When I'm not
+            building, I'm probably breaking something on purpose just to
+            understand how it works.
+          </p>
+          <div class="about-skills">
+            <div class="skill-tags">
+              <span>React</span>
+              <span>JavaScript</span>
+              <span>HTML/CSS</span>
+              <span>MongoDB</span>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="contact-field">
-        <label for="message">Message</label>
-        <textarea id="message" name="message" placeholder="Hey, let's work together..." required></textarea>
+    </section>
+
+    <section id="skills">
+      <h2>Tech Stack</h2>
+      <div class="skills">
+        <div class="skill-box">
+          <img
+            src="https://img.icons8.com/?size=100&id=asWSSTBrDlTW&format=png&color=000000"
+            alt="Reactjs"
+          />
+          <h3>React</h3>
+        </div>
+        <div class="skill-box">
+          <img
+            src="https://img.icons8.com/color/96/javascript--v1.png"
+            alt="JavaScript"
+          />
+          <h3>JavaScript</h3>
+        </div>
+        <div class="skill-box">
+          <img
+            src="https://img.icons8.com/?size=100&id=v8RpPQUwv0N8&format=png&color=000000"
+            alt="HTML"
+          />
+          <h3>HTML</h3>
+        </div>
+        <div class="skill-box">
+          <img
+            src="https://img.icons8.com/?size=100&id=x7XMNGh2vdqA&format=png&color=000000"
+            alt="TailwindCSS"
+          />
+          <h3>Tailwind CSS</h3>
+        </div>
+        <div class="skill-box">
+          <img
+            src="https://img.icons8.com/?size=100&id=13679&format=png&color=000000"
+            alt="JavaScript"
+          />
+          <h3>Java</h3>
+        </div>
+        <div class="skill-box">
+          <img
+            src="https://img.icons8.com/color/48/python--v1.png"
+            alt="Python"
+          />
+          <h3>Python</h3>
+        </div>
+        <div class="skill-box">
+          <img
+            src="https://img.icons8.com/color/48/mysql-logo.png"
+            alt="MySQL"
+          />
+          <h3>MySQL</h3>
+        </div>
+        <div class="skill-box">
+          <img
+            src="https://img.icons8.com/color/48/mongodb.png"
+            alt="MongoDB"
+          />
+          <h3>MongoDB</h3>
+        </div>
+        <div class="skill-box">
+          <img
+            src="https://img.icons8.com/?size=100&id=54087&format=png&color=000000"
+            alt="Nodejs"
+          />
+          <h3>Nodejs</h3>
+        </div>
+        <div class="skill-box">
+          <img src="https://img.icons8.com/color/48/git.png" alt="git" />
+          <h3>git</h3>
+        </div>
+        <div class="skill-box">
+          <img
+            src="https://img.icons8.com/color/48/github--v1.png"
+            alt="GitHub"
+          />
+          <h3>GitHub</h3>
+        </div>
       </div>
-      <div class="contact-footer">
-        <span class="contact-handle">github.com/vaishbil</span>
-        <button type="submit">Send →</button>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="projects">
+        <div class="project-card">
+          <div class="project-accent"></div>
+          <img src="src/binge.png" alt="Bingetrackr" />
+          <div class="project-body">
+            <div>
+              <h3>Bingetrackr</h3>
+              <div class="project-type">Full-stack · Web App</div>
+            </div>
+            <p class="project-desc">
+              A web app to track movies & TV series with watchlists, episode
+              tracking, and social sharing. Built with HTML, CSS, JavaScript,
+              Node.js, and MongoDB Atlas. Deployed on Vercel and Render.
+            </p>
+            <div class="project-stack">
+              <span class="project-tag">JavaScript</span>
+              <span class="project-tag">Node.js</span>
+              <span class="project-tag">MongoDB</span>
+              <span class="project-tag">Vercel</span>
+            </div>
+            <button class="read-more" type="button" aria-expanded="false">
+              Read more ↓
+            </button>
+            <div class="project-footer">
+              <a href="https://bingetrackr.vercel.app" target="_blank"
+                >Live Demo ↗</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-accent"></div>
+          <img src="src/logojobtracker.jpeg" alt="job-tracker" />
+          <div class="project-body">
+            <div>
+              <h3>Job Application Tracker</h3>
+              <div class="project-type">Chrome Extension</div>
+            </div>
+            <p class="project-desc">
+              A browser extension that auto detects job listings you visit and
+              logs them into a dashboard with status tracking.
+            </p>
+            <div class="project-stack">
+              <span class="project-tag">Chrome Storage API </span>
+              <span class="project-tag">Vanilla JS</span>
+              <span class="project-tag">Manifest V3</span>
+            </div>
+            <button class="read-more" type="button" aria-expanded="false">
+              Read more ↓
+            </button>
+            <div class="project-footer">
+              <a href="https://github.com/vaishbil/job-tracker" target="_blank"
+                >GitHub ↗</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-accent"></div>
+          <img src="src/volt.png" alt="job-tracker" />
+          <div class="project-body">
+            <div>
+              <h3>Volt</h3>
+              <div class="project-type">Web App</div>
+            </div>
+            <p class="project-desc">
+              An AI-powered productivity and task management application
+              developed for the Vibe2Ship Hackathon using Google AI Studio.
+              Features intelligent task prioritisation, habit tracking, focus
+              tools, and AI-assisted productivity to help users manage their
+              daily workflow.
+            </p>
+            <div class="project-stack">
+              <span class="project-tag">React </span>
+              <span class="project-tag">TypeScript</span>
+              <span class="project-tag">Tailwind CSS</span>
+              <span class="project-tag">Google Gemini Api</span>
+              <span class="project-tag">Google Ai Studio</span>
+            </div>
+            <button class="read-more" type="button" aria-expanded="false">
+              Read more ↓
+            </button>
+            <div class="project-footer">
+              <a
+                href="https://volt-839071485135.asia-southeast1.run.app/"
+                target="_blank"
+                >Demo ↗</a
+              >
+              <a href="https://github.com/vaishbil/volt" target="_blank"
+                >GitHub ↗</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-accent"></div>
+          <img src="src/sonder1.png" alt="sonder" />
+          <div class="project-body">
+            <div>
+              <h3>Sonder</h3>
+              <div class="project-type">Full Stack - Web App</div>
+            </div>
+            <p class="project-desc">
+              A real-time community chat platform — create servers, organize
+              conversations into channels, and chat live with friends.
+            </p>
+            <div class="project-stack">
+              <span class="project-tag">React </span>
+              <span class="project-tag">Tailwind CSS</span>
+              <span class="project-tag">Socket-io</span>
+              <span class="project-tag">Nodejs</span>
+              <span class="project-tag">MongoDB Atlas</span>
+              <span class="project-tag">Cloudinary</span>
+            </div>
+            <button class="read-more" type="button" aria-expanded="false">
+              Read more ↓
+            </button>
+            <div class="project-footer">
+              <a href="https://sonder-tau-six.vercel.app/" target="_blank"
+                >Live Site ↗</a
+              >
+              <a href="https://github.com/vaishbil/sonder" target="_blank"
+                >GitHub ↗</a
+              >
+            </div>
+          </div>
+        </div>
       </div>
-    </form>
-  </div>
-</section>
-  <footer>
-    <div>&copy; 2025 Vaishali Wankhede</div>
-    <div class="socials">
-      <a href="mailto:vaishaliwankhede777@gmail.com">
-        <img src="https://img.icons8.com/stickers/50/gmail-new.png" alt="Gmail" style="width: 40px;">  
-      </a>
-      <a href="https://linkedin.com/in/vaishali-wankhede-943108188">
-      <img src="https://img.icons8.com/stickers/50/linkedin.png" alt="LinkedIn" style="width: 40px;">  
-      </a>
-      <a href="https://github.com/vaishbil">
-      <img src="https://img.icons8.com/stickers/50/github.png" alt="GitHub" style="width: 40px;"> 
-      </a>
-      <a href="https://www.instagram.com/vaishhh/">
-      <img src="https://img.icons8.com/stickers/50/instagram-new--v2.png" alt="Instagram" style="width: 40px;"> 
-      </a>
-      <a href="https://discord.com/channels/@me">
-        <img src="https://img.icons8.com/stickers/50/discord.png" alt="Discord" style="width: 40px;"> 
+    </section>
+
+    <hr class="section-divider" />
+    <section id="contact">
+      <h2>Contact Me</h2>
+      <div class="contact">
+        <div class="contact-header">
+          <div class="contact-line"></div>
+          <span>get in touch</span>
+          <div class="contact-line right"></div>
+        </div>
+        <form
+          class="contact-form"
+          id="contact-form"
+          action="https://formspree.io/f/xzdwadlj"
+          method="POST"
+        >
+          <div class="contact-row">
+            <div class="contact-field">
+              <label for="name">Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="your name"
+                required
+              />
+            </div>
+            <div class="contact-field">
+              <label for="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="you@email.com"
+                required
+              />
+            </div>
+          </div>
+          <div class="contact-field">
+            <label for="message">Message</label>
+            <textarea
+              id="message"
+              name="message"
+              placeholder="Hey, let's work together..."
+              required
+            ></textarea>
+          </div>
+          <div class="contact-footer">
+            <span class="contact-handle">github.com/vaishbil</span>
+            <button type="submit">Send →</button>
+          </div>
+        </form>
+      </div>
+    </section>
+    <footer>
+      <div>&copy; 2025 Vaishali Wankhede</div>
+      <div class="socials">
+        <a href="mailto:vaishaliwankhede777@gmail.com">
+          <img
+            src="https://img.icons8.com/stickers/50/gmail-new.png"
+            alt="Gmail"
+            style="width: 40px"
+          />
+        </a>
+        <a href="https://linkedin.com/in/vaishali-wankhede-943108188">
+          <img
+            src="https://img.icons8.com/stickers/50/linkedin.png"
+            alt="LinkedIn"
+            style="width: 40px"
+          />
+        </a>
+        <a href="https://github.com/vaishbil">
+          <img
+            src="https://img.icons8.com/stickers/50/github.png"
+            alt="GitHub"
+            style="width: 40px"
+          />
+        </a>
+        <a href="https://www.instagram.com/vaishhh/">
+          <img
+            src="https://img.icons8.com/stickers/50/instagram-new--v2.png"
+            alt="Instagram"
+            style="width: 40px"
+          />
+        </a>
+        <a href="https://discord.com/channels/@me">
+          <img
+            src="https://img.icons8.com/stickers/50/discord.png"
+            alt="Discord"
+            style="width: 40px"
+          />
         </a>
         <a href="https://pin.it/wtm5MC4rk">
-          <img src="https://img.icons8.com/stickers/50/pinterest.png" alt="Pinterest" style="width: 40px;"> 
-          </a>
-    </div>
-  </footer>
-  <script>
-  const form = document.getElementById('contact-form');
-  form.addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const data = new FormData(form);
-    const response = await fetch(form.action, {
-      method: 'POST',
-      body: data,
-      headers: { 'Accept': 'application/json' }
-    });
-    if (response.ok) {
-      form.innerHTML = '<p style="color: #bb86fc; font-size: 1.2rem; text-align: center; padding: 2rem;">✅ Message sent! I\'ll get back to you soon.</p>';
-    } else {
-      form.innerHTML = '<p style="color: #cf6679; font-size: 1.2rem; text-align: center; padding: 2rem;">❌ Something went wrong. Try emailing me directly.</p>';
-    }
-  });
-  
-      function equalizeExpanded() {
-    const cards = [...document.querySelectorAll('.project-card')];
-    cards.forEach(c => c.style.minHeight = '');
-
-    const rows = {};
-    cards
-      .filter(c => c.classList.contains('expanded'))
-      .forEach(c => {
-        (rows[c.offsetTop] = rows[c.offsetTop] || []).push(c);
+          <img
+            src="https://img.icons8.com/stickers/50/pinterest.png"
+            alt="Pinterest"
+            style="width: 40px"
+          />
+        </a>
+      </div>
+    </footer>
+    <script>
+      const form = document.getElementById("contact-form");
+      form.addEventListener("submit", async function (e) {
+        e.preventDefault();
+        const data = new FormData(form);
+        const response = await fetch(form.action, {
+          method: "POST",
+          body: data,
+          headers: { Accept: "application/json" },
+        });
+        if (response.ok) {
+          form.innerHTML =
+            '<p style="color: #bb86fc; font-size: 1.2rem; text-align: center; padding: 2rem;">✅ Message sent! I\'ll get back to you soon.</p>';
+        } else {
+          form.innerHTML =
+            '<p style="color: #cf6679; font-size: 1.2rem; text-align: center; padding: 2rem;">❌ Something went wrong. Try emailing me directly.</p>';
+        }
       });
 
-    Object.values(rows).forEach(group => {
-      const tallest = Math.max(...group.map(c => c.offsetHeight));
-      group.forEach(c => c.style.minHeight = tallest + 'px');
-    });
-  }
+      function equalizeExpanded() {
+        const cards = [...document.querySelectorAll(".project-card")];
+        cards.forEach((c) => (c.style.minHeight = ""));
 
-  document.querySelectorAll('.read-more').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const card = btn.closest('.project-card');
-      const open = card.classList.toggle('expanded');
-      btn.textContent = open ? 'Show less ↑' : 'Read more ↓';
-      btn.setAttribute('aria-expanded', open);
-      equalizeExpanded();
-    });
-  });
+        const rows = {};
+        cards
+          .filter((c) => c.classList.contains("expanded"))
+          .forEach((c) => {
+            (rows[c.offsetTop] = rows[c.offsetTop] || []).push(c);
+          });
 
-  window.addEventListener('resize', equalizeExpanded);
+        Object.values(rows).forEach((group) => {
+          const tallest = Math.max(...group.map((c) => c.offsetHeight));
+          group.forEach((c) => (c.style.minHeight = tallest + "px"));
+        });
+      }
 
+      document.querySelectorAll(".read-more").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const card = btn.closest(".project-card");
+          const open = card.classList.toggle("expanded");
+          btn.textContent = open ? "Show less ↑" : "Read more ↓";
+          btn.setAttribute("aria-expanded", open);
+          equalizeExpanded();
+        });
+      });
 
-</script> 
-</body>
+      window.addEventListener("resize", equalizeExpanded);
+    </script>
+  </body>
 </html>
