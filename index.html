@@ -136,11 +136,27 @@
     }
 
     header h1 {
-      font-size: 4rem;
-      margin-bottom: 1.5rem;
-      font-family: 'Fira Code', monospace;
-      color: #e8f0f8;
-    }
+  margin-bottom: 1.5rem;
+  font-family: 'Fira Code', monospace;
+  color: #e8f0f8;
+  line-height: 1.1;
+}
+
+header h1 .hi {
+  display: block;
+  font-family: 'Fira Code', monospace;   
+  font-size: 1.5rem;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  color: #bdbdbd;
+  margin-bottom: 0.6rem;
+}
+
+header h1 .name {
+  display: block;
+  font-family: 'Fira Code', monospace;  
+  font-size: clamp(2rem, 7vw, 4.5rem);
+}
 
     header p {
       font-size: 1.5rem;
@@ -150,63 +166,77 @@
       font-family: 'Fira Code', monospace;
     }
 
-    /*.button-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1.5rem;
-      animation: slideIn 2s ease-in-out;
-      font-family: 'Fira Code', monospace;
-    }
-
-    .button-container p {
-      font-size: 1.2rem;
-      color: #bb86fc;
-      margin-bottom: 1rem;
-    }
-
-    .button-container a {
-      text-decoration: none;
-      padding: 0.8rem 1.5rem;
-      font-size: 1.2rem;
-      font-weight: 600;
-      border-radius: 50px;
-      color: #fff;
-      background: #bb86fc;
-      transition: background 0.3s, transform 0.2s;
-    }
-
-    .button-container a:hover {
-      background: #3700b3;
-      transform: scale(1.1);
-    }*/
     .button-container {
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 1.5rem;
+      text-align: center;
+      margin-top: 2rem;
       animation: slideIn 2s ease-in-out;
       font-family: 'Fira Code', monospace;
     }
-
-    .button-container {
-  text-align: center;
-  margin-top: 2rem;
-}
 
 .buttons {
   display: inline-flex;
-  gap: 1.5rem; /* Adds spacing between buttons */
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.8rem;
 }
 
 .buttons a {
-  text-decoration: none;
-  padding: 1rem 2rem;
-  font-size: 1.2rem;
-  font-weight: bold;
-  border-radius: 30px;
-  transition: all 0.3s ease-in-out;
+  position: relative;
   display: inline-block;
+  text-decoration: none;
+  padding: 0.9rem 2rem;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #e8f0f8;
+  background: transparent;
+  border: 1px solid #64a0dc;
+  border-radius: 0;
+  transition: background 0.3s, border-color 0.3s, transform 0.3s;
+}
+
+/* the two corner stars */
+.buttons a::before,
+.buttons a::after {
+  content: "✦";
+  position: absolute;
+  font-size: 14px;
+  line-height: 1;
+  color: #64a0dc;
+  transition: transform 0.4s;
+}
+
+.buttons a::before {
+  top: -8px;
+  left: -7px;
+}
+
+.buttons a::after {
+  bottom: -8px;
+  right: -7px;
+}
+
+/* Download My CV: slightly filled */
+.cv-button {
+  background: rgba(100, 160, 220, 0.2);
+}
+
+/* hover for both */
+.buttons a:hover {
+  background: rgba(100, 160, 220, 0.3);
+  border-color: #9cc4ee;
+  transform: translateY(-3px);
+}
+
+.buttons a:hover::before,
+.buttons a:hover::after {
+  transform: rotate(90deg);
 }
 
 /* Styles for "Download My CV" button */
@@ -818,14 +848,18 @@
 </nav>
 
   <header id="home">
-    <h1>Hi, I'm Vaishali Wankhede</h1>
-    <p>Frontend Developer</p>
+    <h1>
+      <span class="hi">Hi, I'm</span>
+      <span class="name">Vaishali Wankhede</span>
+    </h1>
+    <p>Frontend Developer | React & JavaScript</p>
     <div class="button-container">
       <p>Want to know more about me?</p>
       <div class="buttons">
         <a href="vaishali_CV.pdf" download class="cv-button">Download My CV</a>
         <a href="#contact" class="contact-button">Contact Me</a>
       </div>
+    </div>
   </header>
 
 <section id="about">
