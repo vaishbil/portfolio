@@ -39,46 +39,60 @@
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 0.2rem;
+  gap: 0.4rem;
 }
 
 .nav-links a {
+  position: relative;
   text-decoration: none;
   color: #9e9e9e;
-  font-weight: 500;
-  font-size: 0.95rem;
-  padding: 0.45rem 0.9rem;
-  border-radius: 6px;
-  transition: background 0.2s, color 0.2s;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.55rem 0.95rem;
+  transition: color 0.2s;
+}
+
+/* the two corner brackets */
+.nav-links a::before,
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.nav-links a::before {
+  top: 0;
+  left: 0;
+  border-top: 1.5px solid #64a0dc;
+  border-left: 1.5px solid #64a0dc;
+}
+
+.nav-links a::after {
+  bottom: 0;
+  right: 0;
+  border-bottom: 1.5px solid #64a0dc;
+  border-right: 1.5px solid #64a0dc;
 }
 
 .nav-links a:hover {
-  background: rgba(100, 160, 220, 0.1);
-  color: #e0e0e0;
+  color: #e8f0f8;
+}
+
+.nav-links a:hover::before,
+.nav-links a:hover::after,
+.nav-links a.active::before,
+.nav-links a.active::after {
+  opacity: 1;
 }
 
 .nav-links a.active {
-  background: rgba(100, 160, 220, 0.1);
   color: #64a0dc;
-}
-
-.nav-cta {
-  text-decoration: none;
-  background: #64a0dc;
-  color: #0a0a0a !important;
-  font-size: 0.88rem !important;
-  font-weight: 700 !important;
-  padding: 0.45rem 1.2rem !important;
-  border-radius: 20px !important;
-  margin-left: 0.8rem;
-  transition: background 0.3s, transform 0.2s !important;
-  font-family: 'Fira Code', monospace;
-}
-
-.nav-cta:hover {
-  background: #185fa5 !important;
-  color: #fff !important;
-  transform: translateY(-1px) !important;
 }
 
 .menu {
@@ -819,14 +833,35 @@ header h1 .name {
 
     
   </style>
-  <script>
+    <script>
     document.addEventListener('DOMContentLoaded', () => {
       const menuIcon = document.querySelector('.menu');
       const navLinks = document.querySelector('.nav-links');
+      const links = document.querySelectorAll('.nav-links a');
+      const sections = [...links].map(a => document.querySelector(a.getAttribute('href')));
 
       menuIcon.addEventListener('click', () => {
         navLinks.classList.toggle('show');
       });
+
+      // close mobile menu after tapping a link
+      links.forEach(a => a.addEventListener('click', () => navLinks.classList.remove('show')));
+
+      // highlight the link of the section you're viewing
+      const spy = () => {
+        const y = window.scrollY + 120;
+        let current = 0;
+        sections.forEach((sec, i) => {
+          if (sec && sec.getBoundingClientRect().top + window.scrollY <= y) current = i;
+        });
+        if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 2) {
+          current = links.length - 1;
+        }
+        links.forEach((a, i) => a.classList.toggle('active', i === current));
+      };
+
+      window.addEventListener('scroll', spy);
+      spy();
     });
   </script>
 </head>
@@ -843,7 +878,7 @@ header h1 .name {
     <a href="#about">About</a>
     <a href="#skills">Skills</a>
     <a href="#projects">Projects</a>
-    <a href="#contact" class="nav-cta">Contact ↗</a>
+    <a href="#contact" class="nav-cta">Contact</a>
   </div>
 </nav>
 
