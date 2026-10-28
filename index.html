@@ -779,7 +779,7 @@
         color: #757575;
       }
 
-           .contact-form button {
+      .contact-form button {
         position: relative;
         display: inline-block;
         padding: 0.9rem 2rem;
@@ -789,14 +789,16 @@
         letter-spacing: 0.14em;
         text-transform: uppercase;
         color: #e8f0f8;
-        background: rgba(100, 160, 220, 0.2);
+        background: transparent;
         border: 1px solid #64a0dc;
         border-radius: 0;
+        box-shadow: 0 5px 15px rgba(100, 160, 220, 0.4);
         cursor: pointer;
         transition:
           background 0.3s,
           border-color 0.3s,
-          transform 0.3s;
+          transform 0.3s,
+          box-shadow 0.3s;
       }
 
       /* the two corner stars */
@@ -823,6 +825,7 @@
       .contact-form button:hover {
         background: rgba(100, 160, 220, 0.3);
         border-color: #9cc4ee;
+        box-shadow: 0 10px 20px rgba(100, 160, 220, 0.6);
         transform: translateY(-3px);
       }
 
@@ -1347,7 +1350,7 @@
         });
         if (response.ok) {
           form.innerHTML =
-            '<p style="color: #bb86fc; font-size: 1.2rem; text-align: center; padding: 2rem;">✅ Message sent! I\'ll get back to you soon.</p>';
+            '<p style="color: #64a0dc; font-size: 1.2rem; text-align: center; padding: 2rem;">✅ Message sent! I\'ll get back to you soon.</p>';
         } else {
           form.innerHTML =
             '<p style="color: #cf6679; font-size: 1.2rem; text-align: center; padding: 2rem;">❌ Something went wrong. Try emailing me directly.</p>';
