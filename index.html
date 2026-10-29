@@ -330,52 +330,102 @@
         background-attachment: fixed;
       }
 
-      .about-simple {
+      .about-editorial {
         display: flex;
-        justify-content: center;
         align-items: center;
-        gap: 2.5rem;
-        background: #16253a;
-        border: 1px solid rgba(100, 160, 220, 0.2);
-        border-radius: 16px;
-        padding: 2.5rem;
+        justify-content: center;
+        gap: 3.5rem;
+        max-width: 900px;
+        margin: 0 auto;
         animation: slideIn 1.5s ease-in-out;
       }
 
-      .about-photo-col {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+      /* photo with the offset outline frame */
+      .about-frame {
+        position: relative;
         flex-shrink: 0;
+        width: 240px;
+        height: 290px;
+        margin: 0 16px 16px 0;
+      }
+
+      .about-frame::before {
+        content: "";
+        position: absolute;
+        inset: 16px -16px -16px 16px;
+        border: 1px solid #64a0dc;
+      }
+
+      .about-frame::after {
+        content: "✦";
+        position: absolute;
+        right: -23px;
+        bottom: -23px;
+        font-size: 14px;
+        line-height: 1;
+        color: #64a0dc;
       }
 
       .about-photo {
-        width: 200px;
-        height: 200px;
-        border-radius: 50%;
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 100%;
         object-fit: cover;
-        border: 3px solid #64a0dc;
+        object-position: center top;
+        border-radius: 0;
+      }
+
+      .about-content {
+        max-width: 560px;
+      }
+      .about-label {
+        font-family: "Fira Code", monospace;
+        font-size: 0.85rem;
+        font-weight: 400;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        text-align: left;
+        color: #64a0dc;
+        margin-bottom: 0.8rem;
+        animation: none;
       }
 
       .about-name {
         font-family: "Fira Code", monospace;
-        font-size: 1.3rem;
+        font-size: clamp(1.5rem, 3.2vw, 2rem);
         font-weight: 600;
-        color: #f0f0f0;
-        margin-top: 1rem;
-        text-align: center;
+        line-height: 1.2;
+        color: #e8f0f8;
       }
 
       .about-role {
-        color: #64a0dc;
         font-family: "Fira Code", monospace;
-        font-size: 0.9rem;
-        text-align: center;
-        margin-top: 0.2rem;
+        font-size: 0.95rem;
+        letter-spacing: 0.04em;
+        color: #64a0dc;
+        margin-top: 0.3rem;
       }
 
-      .about-content {
-        max-width: 600px;
+      /* line with a star in the middle */
+      .about-divider {
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        margin: 1.2rem 0;
+      }
+
+      .about-divider::before,
+      .about-divider::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: rgba(100, 160, 220, 0.35);
+      }
+
+      .about-divider span {
+        font-size: 0.8rem;
+        color: #64a0dc;
       }
 
       .about-bio {
@@ -383,48 +433,34 @@
         color: #bdbdbd;
         font-size: 0.9rem;
         line-height: 1.9;
-        margin-bottom: 1.6rem;
       }
 
-      .about-skills h4 {
-        font-size: 0.75rem;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: #64a0dc;
+      .about-stack {
+        margin-top: 1.4rem;
         font-family: "Fira Code", monospace;
-        margin-bottom: 0.9rem;
-      }
-
-      .skill-tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.6rem;
-      }
-
-      .skill-tags span {
-        font-family: "Fira Code", monospace;
-        font-size: 0.82rem;
-        background: rgba(100, 160, 220, 0.08);
-        border: 1px solid rgba(100, 160, 220, 0.2);
+        font-size: 0.85rem;
+        letter-spacing: 0.04em;
         color: #64a0dc;
-        padding: 0.4rem 0.9rem;
-        border-radius: 20px;
-        transition: all 0.25s;
       }
 
-      .skill-tags span:hover {
-        background: #64a0dc;
-        color: #0a0a0a;
-        transform: translateY(-2px);
+      .about-stack span:not(:last-child)::after {
+        content: "/";
+        margin: 0 0.6rem;
+        color: rgba(100, 160, 220, 0.4);
       }
 
       @media (max-width: 700px) {
-        .about-simple {
-          flex-direction: column;
+        .about-label {
           text-align: center;
         }
-        .skill-tags {
-          justify-content: center;
+        .about-editorial {
+          flex-direction: column;
+          gap: 2.5rem;
+          text-align: center;
+        }
+        .about-frame {
+          width: 200px;
+          height: 240px;
         }
       }
 
@@ -993,18 +1029,19 @@
     </header>
 
     <section id="about">
-      <h2>About Me</h2>
-      <div class="about-simple">
-        <div class="about-photo-col">
+      <div class="about-editorial">
+        <div class="about-frame">
           <img
             src="src/vaishali.jpg"
             alt="Vaishali Wankhede"
             class="about-photo"
           />
-          <div class="about-name">Vaishali Wankhede</div>
-          <div class="about-role">Frontend Developer</div>
         </div>
         <div class="about-content">
+          <h2 class="about-label">// About Me</h2>
+          <div class="about-name">Vaishali Wankhede</div>
+          <div class="about-role">Full Stack Developer</div>
+          <div class="about-divider"><span>✦</span></div>
           <p class="about-bio">
             Hi, I'm Vaishali, a recent Computer Science graduate currently
             focused on React and frontend development. I like solving problems
@@ -1013,13 +1050,11 @@
             building, I'm probably breaking something on purpose just to
             understand how it works.
           </p>
-          <div class="about-skills">
-            <div class="skill-tags">
-              <span>React</span>
-              <span>JavaScript</span>
-              <span>HTML/CSS</span>
-              <span>MongoDB</span>
-            </div>
+          <div class="about-stack">
+            <span>React</span>
+            <span>JavaScript</span>
+            <span>Node.js</span>
+            <span>MongoDB</span>
           </div>
         </div>
       </div>
