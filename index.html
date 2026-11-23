@@ -555,38 +555,111 @@
       }
 
       #projects {
-        /* background: #0f1923 no-repeat center center/cover; */
+        position: relative;
         background:
           linear-gradient(rgba(15, 25, 35, 0.88), rgba(15, 25, 35, 0.88)),
           url("src/stars2.jpeg") center / cover no-repeat;
         background-attachment: fixed;
       }
+      #projects > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      .projects-controls {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 0.7rem;
+        margin: 0 1rem 0.25rem;
+      }
+
+      .projects-count {
+        font-family: "Fira Code", monospace;
+        font-size: 0.8rem;
+        letter-spacing: 0.1em;
+        color: #9aa7b5;
+        min-width: 4.5rem;
+        text-align: right;
+      }
+
+      .proj-arrow {
+        width: 36px;
+        height: 36px;
+        background: #16253a;
+        border: 1px solid #64a0dc;
+        border-bottom-width: 3px;
+        border-radius: 0;
+        color: #64a0dc;
+        font-family: "Fira Code", monospace;
+        font-size: 1rem;
+        cursor: pointer;
+        transition:
+          background 0.3s,
+          opacity 0.3s;
+      }
+
+      .proj-arrow:hover:not(:disabled) {
+        background: #1d3350;
+      }
+
+      .proj-arrow:disabled {
+        opacity: 0.35;
+        cursor: default;
+      }
 
       .projects {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        --card-w: clamp(280px, 32vw, 520px);
+        position: relative;
+        display: flex;
         gap: 1.5rem;
         align-items: start;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        padding: 1rem max(1rem, calc(50% - var(--card-w) / 2)) 2.5rem;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+      .projects::-webkit-scrollbar {
+        display: none;
       }
 
       .project-card {
+        flex: 0 0 var(--card-w);
+        scroll-snap-align: center;
         background: #16253a;
         border-radius: 10px;
         overflow: hidden;
         border: 1px solid rgba(100, 160, 220, 0.1);
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-        transition:
-          transform 0.3s,
-          box-shadow 0.3s,
-          border-color 0.3s;
         display: flex;
         flex-direction: column;
+        opacity: 0.2;
+        transform: translateY(14px) scale(0.97);
+        transition:
+          opacity 0.5s,
+          transform 0.4s,
+          box-shadow 0.3s,
+          border-color 0.3s;
+      }
+
+      /* faded in once it scrolls into view */
+      .project-card.in {
+        opacity: 0.6;
+        transform: none;
       }
 
       .project-card:hover {
         transform: translateY(-5px);
-        box-shadow: 0 8px 30px rgba(1100, 160, 220, 0.2);
+        opacity: 1;
+        box-shadow: 0 8px 30px rgba(100, 160, 220, 0.2);
         border-color: rgba(100, 160, 220, 0.4);
+      }
+
+      /* the card in the middle */
+      .project-card.active {
+        opacity: 1;
+        border-color: #64a0dc;
       }
 
       .project-accent {
@@ -1142,6 +1215,25 @@
 
     <section id="projects">
       <h2>Projects</h2>
+      <div class="projects-controls">
+        <span class="projects-count" id="projects-count">01 / 05</span>
+        <button
+          class="proj-arrow"
+          id="proj-prev"
+          type="button"
+          aria-label="Previous project"
+        >
+          ←
+        </button>
+        <button
+          class="proj-arrow"
+          id="proj-next"
+          type="button"
+          aria-label="Next project"
+        >
+          →
+        </button>
+      </div>
       <div class="projects">
         <div class="project-card">
           <div class="project-accent"></div>
@@ -1460,6 +1552,71 @@
       });
 
       window.addEventListener("resize", equalizeExpanded);
+
+      // ===== horizontal projects scroller =====
+      const projectsSection = document.getElementById("projects");
+      const track = projectsSection.querySelector(".projects");
+      const projectCards = [...track.querySelectorAll(".project-card")];
+      const prevBtn = document.getElementById("proj-prev");
+      const nextBtn = document.getElementById("proj-next");
+      const countEl = document.getElementById("projects-count");
+
+      // fade each card in as it scrolls into view
+      const fadeObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) entry.target.classList.add("in");
+          });
+        },
+        { root: track, threshold: 0.4 },
+      );
+      projectCards.forEach((card) => fadeObserver.observe(card));
+
+      function updateProjects() {
+        const mid = track.scrollLeft + track.clientWidth / 2;
+        let best = 0;
+        let bestDist = Infinity;
+        projectCards.forEach((card, i) => {
+          const dist = Math.abs(card.offsetLeft + card.offsetWidth / 2 - mid);
+          if (dist < bestDist) {
+            bestDist = dist;
+            best = i;
+          }
+        });
+
+        const atStart = track.scrollLeft <= 2;
+        const atEnd =
+          track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
+        if (atStart) best = 0;
+        else if (atEnd) best = projectCards.length - 1;
+
+        projectCards.forEach((card, i) =>
+          card.classList.toggle("active", i === best),
+        );
+        countEl.textContent =
+          String(best + 1).padStart(2, "0") +
+          " / " +
+          String(projectCards.length).padStart(2, "0");
+        prevBtn.disabled = atStart;
+        nextBtn.disabled = atEnd;
+      }
+
+      function projectStep() {
+        return projectCards.length > 1
+          ? projectCards[1].offsetLeft - projectCards[0].offsetLeft
+          : track.clientWidth;
+      }
+
+      nextBtn.addEventListener("click", () =>
+        track.scrollBy({ left: projectStep(), behavior: "smooth" }),
+      );
+      prevBtn.addEventListener("click", () =>
+        track.scrollBy({ left: -projectStep(), behavior: "smooth" }),
+      );
+
+      track.addEventListener("scroll", updateProjects, { passive: true });
+      window.addEventListener("resize", updateProjects);
+      updateProjects();
     </script>
   </body>
 </html>
