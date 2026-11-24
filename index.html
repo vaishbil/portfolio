@@ -661,6 +661,153 @@
         opacity: 1;
         border-color: #64a0dc;
       }
+            /* end-of-row "more coming" card */
+      .projects-end {
+        flex: 0 0 var(--card-w);
+        scroll-snap-align: center;
+        align-self: stretch;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 1.2rem;
+        padding: 2rem;
+        border: 1px dashed rgba(100, 160, 220, 0.5);
+        background: rgba(22, 37, 58, 0.45);
+        opacity: 0.85;
+      }
+
+      .projects-end-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-family: "Fira Code", monospace;
+        font-size: 0.7rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: #64a0dc;
+        border: 1px solid rgba(100, 160, 220, 0.45);
+        background: rgba(100, 160, 220, 0.1);
+        padding: 0.35rem 0.75rem;
+      }
+
+      .projects-end-badge::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #64a0dc;
+        animation: endPulse 1.6s ease-in-out infinite;
+      }
+
+      .projects-end h3 {
+        margin: 0;
+        font-family: "Fira Code", monospace;
+        font-size: clamp(1.4rem, 2.2vw, 1.9rem);
+        font-weight: 600;
+        line-height: 1.25;
+        color: #e8f0f8;
+      }
+
+      .projects-end h3 span {
+        color: #64a0dc;
+      }
+
+      .projects-end h3 span::after {
+        content: "_";
+        margin-left: 2px;
+        animation: endBlink 1.1s steps(1) infinite;
+      }
+
+      .projects-end p {
+        margin: 0;
+        font-size: 0.95rem;
+        line-height: 1.7;
+        color: #bdbdbd;
+      }
+
+      /* same look as the hero "Download My CV" button */
+      .projects-end a {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.7rem;
+        margin-top: 0.4rem;
+        padding: 0.85rem 1.5rem;
+        font-family: "Fira Code", monospace;
+        font-size: 0.85rem;
+        font-weight: 400;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: #e8f0f8;
+        background: rgba(100, 160, 220, 0.2);
+        border: 1px solid #64a0dc;
+        border-radius: 0;
+        box-shadow: 0 5px 15px rgba(100, 160, 220, 0.4);
+        transition:
+          background 0.3s,
+          border-color 0.3s,
+          transform 0.3s,
+          box-shadow 0.3s;
+      }
+
+      .projects-end a svg {
+        width: 18px;
+        height: 18px;
+        flex-shrink: 0;
+      }
+
+      .projects-end a::before,
+      .projects-end a::after {
+        content: "✦";
+        position: absolute;
+        font-size: 14px;
+        line-height: 1;
+        color: #64a0dc;
+        transition: transform 0.4s;
+      }
+
+      .projects-end a::before {
+        top: -8px;
+        left: -7px;
+      }
+
+      .projects-end a::after {
+        bottom: -8px;
+        right: -7px;
+      }
+
+      .projects-end a:hover {
+        background: rgba(100, 160, 220, 0.3);
+        border-color: #9cc4ee;
+        box-shadow: 0 10px 20px rgba(100, 160, 220, 0.6);
+        transform: translateY(-3px);
+      }
+
+      .projects-end a:hover::before,
+      .projects-end a:hover::after {
+        transform: rotate(90deg);
+      }
+
+      @keyframes endPulse {
+        50% {
+          opacity: 0.25;
+        }
+      }
+
+      @keyframes endBlink {
+        50% {
+          opacity: 0;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .projects-end-badge::before,
+        .projects-end h3 span::after {
+          animation: none;
+        }
+      }
 
       .project-accent {
         height: 3px;
@@ -1399,6 +1546,27 @@
               >
             </div>
           </div>
+        </div>
+                <div class="projects-end">
+          <span class="projects-end-badge">In progress</span>
+          <h3>Building a lot <span>more.</span></h3>
+          <p>
+            New projects are on the way. Follow along on GitHub to see what I'm
+            shipping next.
+          </p>
+          <a
+            href="https://github.com/vaishbil"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg viewBox="0 0 16 16" aria-hidden="true">
+              <path
+                fill="currentColor"
+                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+              />
+            </svg>
+            Follow on GitHub
+          </a>
         </div>
       </div>
     </section>
